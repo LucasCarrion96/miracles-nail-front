@@ -1,0 +1,37 @@
+.foto {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    margin: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: red;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.329);
+    z-index: 1;
+}
+
+.presentacion {
+    display: block;
+    margin: 90px 30px 30px 30px;
+    padding: 100px 20px 20px 20px;
+    text-align: left;
+}
+
+@media screen and (min-width: 760px) {
+
+    .foto {
+        position: absolute;
+        top: 50px;
+        right: 10vw;
+        width: 200px;
+        height: 200px;
+    }
+
+    .presentacion {
+        display: block;
+        margin: 150px 30px 30px 30px;
+        padding: 100px 20px 20px 20px;
+        text-align: left;
+    }
+}

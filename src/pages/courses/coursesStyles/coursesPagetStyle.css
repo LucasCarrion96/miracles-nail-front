@@ -1,0 +1,118 @@
+    .courseSectionTilte {
+        margin-top: 60px;
+        padding: 30px;
+
+    }
+
+    .courseCards {
+        position: relative;
+        width: 100%;
+        display: grid;
+        row-gap: 10px;
+
+
+    }
+
+    .courseCards div {
+        position: relative;
+        height: 20vh;
+
+
+    }
+
+    .courseCards h1 {
+        position: relative;
+        font-size: 40px;
+        z-index: 10;
+        padding: 30px;
+    }
+
+    .courseCards ul {
+        position: relative;
+        z-index: 10;
+        padding: 30px;
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+
+    .buttonPc {
+        display: none;
+    }
+
+    .buttonMovil {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0px;
+        height: 100%;
+        width: 40px;
+        display: block;
+    }
+
+    .courseCards img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    @media screen and (min-width: 760px) {
+        .courseCards {
+            position: relative;
+            width: 100%;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+        }
+
+        .courseCards div {
+            position: relative;
+            min-height: 60vh;
+
+        }
+
+        .courseCards h1 {
+            position: relative;
+            font-size: 40px;
+            z-index: 10;
+            padding: 30px;
+        }
+
+        .courseCards ul {
+            position: relative;
+            z-index: 10;
+            padding: 30px;
+        }
+
+        .courseCards img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .buttonPc {
+            position: absolute;
+            z-index: 10;
+            bottom: 0px;
+            width: 100%;
+            display: block;
+        }
+
+        .buttonMovil {
+            display: none;
+        }
+
+    }

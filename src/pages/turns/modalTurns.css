@@ -1,0 +1,96 @@
+/* Estilos para el fondo del modal */
+.fadeModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.644);
+    opacity: 0;
+    transition: opacity .6s ease;
+    z-index: 100;
+}
+
+.fadeModal.visible {
+    opacity: 1;
+}
+
+/* Modal */
+.modalTurn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    max-width: 90%;
+    opacity: 0;
+    transition: opacity .6s ease;
+    z-index: 1070;
+    pointer-events: none;
+
+}
+
+.modalTurn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modalTurnHeader {
+    padding: 16px;
+    border-bottom: 1px solid #000000;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modalTurnBody {
+    padding: 16px;
+}
+
+.countersModal {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 20px;
+}
+
+.counterBodyModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.counterButtonsModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000 !important;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+
+}

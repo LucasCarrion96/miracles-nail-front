@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*
+.anton-regular {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+paleta de colores
+
+blanco #f5f4ef
+rosa claro #fcc5ca
+rosa #f39b9f
+marron #816f63
+marron claro #c2afa1
+crema #e7d6d2
+
+*/
+
+
+
+:root {
+    --bgTextColor: #daa0c33f;
+    --bgTextShadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.329);
+    --bgShadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.329);
+    --backFilter: blur(5px);
+    --white: #f5f4ef !important;
+    --light-pink: #EDCFD3 !important;
+    --pink: #E5A8B1 !important;
+    --rose: #D9A7A4 !important;
+    --light-brown: #E3D5CA !important;
+    --light-brown-opacity: #e3d5caa4 !important;
+    --cream: #F8EDEB !important;
+    --lile: #E1CADA !important;
+
+}
+
+body {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: var(--white);
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+
+
+}
+
+
+
+.bgText {
+    border-radius: 20px;
+    box-shadow: var(--bgTextShadow);
+    background: var(--bgTextColor);
+    -webkit-backdrop-filter: var(--backFilter);
+    backdrop-filter: var(--backFilter);
+}
+
+.bgNavFooter {
+    background: var(--light-pink) !important;
+}
+
+.btnPink {
+    background: var(--light-pink) !important;
+}
+
+.titlePrincipal {
+    font-family: "Fascinate", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    text-shadow: 2px 2px 5px rgba(37, 37, 37, 0.794);
+}
+
+.title {
+    font-weight: 400;
+    font-size: 30px;
+
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 24px;
+
+
+}
+
+.contentText {
+    font-weight: 700;
+    font-size: 18px;
+
+
+}
+
+.btnSeeMore {
+    border-radius: 20px;
+    background-color: var(--pink);
+    border: 2px solid black;
+    color: black;
+    transition: all .6s ease;
+}
+
+.btnSeeMore:hover {
+    background-color: var(--rose);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px white;
+}
+
+
+
+
+@media screen and (min-width: 760px) {
+
+    .titlePrincipal {
+
+        font-size: 60px;
+        letter-spacing: 3px;
+
+    }
+
+    .title {
+        font-weight: 400;
+        font-size: 54px;
+    }
+
+    .subtitle {
+        font-weight: 400;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .contentText {
+        font-weight: 400;
+        font-size: 20px;
+
+    }
+}

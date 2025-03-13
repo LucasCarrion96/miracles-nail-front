@@ -1,0 +1,30 @@
+/* src/components/CustomAlert.css */
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1080 !important;
+    transition: all ease .6s;
+}
+
+.alert-content {
+    text-align: center;
+}
+
+/* Estilos para diferentes tipos de alerta */
+.alert.confirmed {
+    border-color: green;
+}
+
+.alert.cancelled {
+    border-color: red;
+}
+
+.alert.question {
+    border-color: blue;
+}

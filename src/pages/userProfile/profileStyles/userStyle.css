@@ -1,0 +1,70 @@
+.userBody {
+    min-height: 50vh;
+    position: relative;
+}
+
+.nav {
+    margin: 60px 20px 20px 20px;
+}
+
+.profile {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.imgProfile {
+    margin: -30px 20px 10px 10px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    display: inline-block;
+}
+
+.userImg {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.changeImg {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-color: blue;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.userName {
+    align-self: flex-end;
+}
+
+.nav-link {
+    text-decoration: none !important;
+    color: black;
+}
+
+
+
+.mainProfile {
+    text-align: center;
+}
+
+
+
+.tableProfile {
+    margin-bottom: 70px !important;
+}
+
+.thProfile {
+    background-color: rgba(255, 93, 174, 0.514) !important;
+}
+
+.tdProfile {
+    background-color: rgba(255, 93, 174, 0.226) !important;
+
+}
