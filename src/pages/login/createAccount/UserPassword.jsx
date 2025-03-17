@@ -4,6 +4,7 @@ export const UserPassword = ({ formData, handleChange, togglePassword }) => {
     return (
         <>
             <div className="userPassword">
+                <h4>Crea una contraseña</h4>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">
                         Contraseña

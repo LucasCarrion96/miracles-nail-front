@@ -4,6 +4,7 @@ export const UserContacts = ({ formData, handleChange }) => {
     return (
         <>
             <div className="userContact">
+                <h4>Medios de Contacto</h4>
                 <div className="mb-3">
                     <label htmlFor="phone" className="form-label">
                         Número de Celular

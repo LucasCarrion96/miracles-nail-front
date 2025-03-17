@@ -7,7 +7,7 @@ import { UserDetails } from "./UserDetails";
 import { UserContacts } from "./UserContacts";
 import { UserPassword } from "./UserPassword";
 import { UserHealthCondition } from "./UserHealthCondition";
-
+import { ToS } from "./ToS";
 
 export const CreateAccount = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
@@ -109,21 +109,19 @@ export const CreateAccount = () => {
                         {error && <p className="text-danger">{error}</p>}
 
                         <br />
-                        <div>
-                            <button type="submit" className="btn btn-primary">
-                                Registrarse
-                            </button>
-                        </div>
+                        <ToS />
                     </form>
 
+                </div>
+                <div className="buttonContainer">
                     <button type="button" onClick={prevStep} disabled={currentStep === 0}>
                         Anterior
                     </button>
                     <button type="button" onClick={nextStep} disabled={currentStep === 4}>
                         Siguiente
-                    </button><br />
-                    <Link to="/iniciar-sesion">Volver al inicio de sesión.</Link>
+                    </button>
                 </div>
+                <Link to="/iniciar-sesion">Volver al inicio de sesión.</Link>
             </div>
         </>
     );

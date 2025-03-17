@@ -4,6 +4,7 @@ export const UserDetails = ({ formData, handleChange }) => {
     return (
         <>
             <div className="userDetails">
+                <h4>Datos personales</h4>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">
                         Nombre
