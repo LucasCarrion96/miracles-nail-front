@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export const ToS = () => {
     return (
         <>
@@ -11,15 +12,16 @@ export const ToS = () => {
                         <input
                             type="checkbox"
                             className="form-check-input"
+                            name='ToS'
 
                         />
-                        <label className="form-check-label labelPasswordCheck">Terminos y Condiciones</label>
+                        <label htmlFor='ToS' className="form-check-label labelPasswordCheck">Terminos y Condiciones</label>
+
                     </div>
                     <button type="submit" className="btn btn-primary">
                         Registrarse
                     </button>
                 </div>
-
             </div>
 
         </>

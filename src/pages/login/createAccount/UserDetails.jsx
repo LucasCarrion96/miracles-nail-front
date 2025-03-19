@@ -25,6 +25,7 @@ export const UserDetails = ({ formData, handleChange }) => {
                         Apellido
                     </label>
                     <input
+                        placeholder="Solo un apellido"
                         type="text"
                         className="form-control inputText"
                         name="userSurname"
@@ -35,12 +36,13 @@ export const UserDetails = ({ formData, handleChange }) => {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="nacimiento" className="form-label">Fecha de nacimiento<small></small></label>
+                    <label htmlFor="birthDate" className="form-label">Fecha de nacimiento<small></small></label>
                     <input
                         type="date"
                         id="nacimiento"
-                        name="nacimiento"
+                        name="birthDate"
                         value={formData.birthDate}
+                        onChange={handleChange}
                         className="form-control inputText" />
                 </div>
             </div>

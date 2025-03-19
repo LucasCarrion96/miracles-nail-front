@@ -29,6 +29,7 @@ export const UserContacts = ({ formData, handleChange }) => {
                         type="email"
                         className="form-control inputText"
                         name="mail"
+                        placeholder="miraclesnail@gmail.com"
                         value={formData.mail}
                         onChange={handleChange}
                         required
@@ -44,6 +45,7 @@ export const UserContacts = ({ formData, handleChange }) => {
                         type="email"
                         className="form-control inputText"
                         name="confirmMail"
+                        placeholder="miraclesnail@gmail.com"
                         value={formData.ConfirmMail}
                         onChange={handleChange}
                         required

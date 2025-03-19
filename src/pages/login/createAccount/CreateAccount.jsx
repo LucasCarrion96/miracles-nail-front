@@ -19,6 +19,8 @@ export const CreateAccount = () => {
         password: "",
         confirmPassword: "",
         birthDate: "",
+        healthConditions: [], // Aquí se almacenarán los IDs de las condiciones seleccionadas
+        otherCondition: "", // Si el usuario elige "Otros", almacenará la descripción
         showPassword: false
     });
     const [error, setError] = useState("");
@@ -49,7 +51,8 @@ export const CreateAccount = () => {
         }
 
         try {
-            const response = await axios.post(`${apiUrl}/users/register`, {
+            // 📌 1️⃣ Registrar usuario
+            const userResponse = await axios.post(`${apiUrl}/users/register`, {
                 userName: formData.userName,
                 userSurname: formData.userSurname,
                 birthDate: formData.birthDate,
@@ -58,11 +61,25 @@ export const CreateAccount = () => {
                 password: formData.password
             });
 
-            console.log("Cuenta creada:", response.data);
-            navigate("/iniciar-sesion"); // Redirige al login tras éxito
+            const userId = userResponse.data.userId; // Asegúrate de que el backend devuelve el ID del usuario
+
+            console.log("Cuenta creada:", userResponse.data);
+
+            // 📌 2️⃣ Registrar condiciones de salud (si hay)
+            if (formData.healthConditions && formData.healthConditions.length > 0) {
+                await axios.post(`${apiUrl}/health-conditions`, {
+                    userId,
+                    healthConditions: formData.healthConditions
+                });
+
+                console.log("Condiciones de salud registradas");
+            }
+
+            // 📌 Redirigir al login tras éxito
+            navigate("/iniciar-sesion");
+
         } catch (err) {
-            console.error("Error al registrar usuario:", err.response || err);
-            // Muestra el mensaje que viene del backend, si lo hay
+            console.error("Error en el registro:", err.response || err);
             setError(err.response?.data?.message || "Error al crear la cuenta. Inténtalo de nuevo.");
         }
     };
@@ -103,7 +120,8 @@ export const CreateAccount = () => {
                             formData={formData} handleChange={handleChange} />
                         <UserContacts className="userDetails"
                             formData={formData} handleChange={handleChange} />
-                        <UserHealthCondition className="userDetails" />
+                        <UserHealthCondition className="userDetails"
+                            formData={formData} handleChange={handleChange} />
                         <UserPassword className="userDetails"
                             formData={formData} handleChange={handleChange} togglePassword={togglePassword} />
                         {error && <p className="text-danger">{error}</p>}
