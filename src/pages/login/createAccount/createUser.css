@@ -1,57 +1,43 @@
-.createAccountBg {
-    margin: auto;
-    margin-top: 150px;
+.createAccountContainer {
     width: 80vw;
-    min-height: 60vh;
-    padding: 30px;
+    height: 70vh;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+
+    padding: 10px;
+    border: 2px solid black;
 }
 
-.createAccountContainer {
-    width: 100%;
-    margin: auto;
-    overflow: hidden;
+.animatedStep>div {
+    width: 70%;
+    height: 100%;
+    /* ← Fijo para todos los pasos */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
+}
+
+.animatedStep>div>div {
+    width: 100%;
 }
 
 .buttonContainer {
     width: 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    padding: 0 20px;
     display: flex;
     justify-content: end;
-    margin-top: 20px;
+    align-items: center;
 }
 
-.createAccount {
-    width: 100%;
-    height: 500%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(calc(-100% * var(--step)));
-}
-
-.createAccount>* {
-    display: block;
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-    flex-shrink: 0;
-    border: black solid 2px;
-}
-
-.createAccount>* .inputText,
-.createAccount>* select,
-.createAccount>* .passwordCheck {
-    width: 90%;
-    margin: auto;
-}
-
-.createAccount>* label {
-    margin-left: 10%;
-}
-
-.createAccount>* .labelPasswordCheck {
-    margin-left: 5px;
+.buttonContainer>button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0px 10px;
 }

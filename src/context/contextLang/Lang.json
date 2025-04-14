@@ -11,12 +11,43 @@
         " Explora una amplia gama de colores, técnicas y adornos para encontrar la combinación perfecta que te haga brillar con confianza. Con un enfoque en la calidad y el detalle, solo utilizo los mejores productos y técnicas para garantizar resultados impecables que te encantarán.",
         " ¡Prepárate para experimentar la magia de unas uñas radiantes en Miracle's Nail Studio!"
     ],
-    "abouMe": [
+    "aboutMe": [
         "¡Hola! Soy Rocio Milagros Paredes, pero me conocen como Mili. Permíteme compartir un poco sobre mí contigo.",
         "Desde hace tres años, he estado inmersa en el mundo de la manicura, donde cada día encuentro una nueva forma de expresar mi creatividad y pasión. Ver cómo las manos de mis clientes se transforman en pequeñas obras de arte es lo que me motiva y me llena de alegría.",
         "Fuera del mundo de las uñas, mi vida está impregnada de arte en todas sus formas. Disfruto pintando lo que sea, dejando que la música me inspire en cada momento, creando manualidades que reflejan mi imaginación y disfrutandola danza como una forma de expresión del alma.",
         "Además, tengo una debilidad especial por los gatos. Su elegancia, su misterio y su compañía me llenan de felicidad y hacen que mi hogar sea un lugar más acogedor.",
         "Pero más allá de mis intereses personales, tengo un sueño que me impulsa día a día: convertir mi emprendimiento de manicurista en mi trabajo principal. Sueño con tener mi propio espacio donde pueda fusionar mi amor por el arte con mi pasión por embellecer las manos de quienes confían en mí.",
         "Gracias por tomarte el tiempo de conocer un poco más sobre mí. Estoy emocionada por lo que el futuro me depara y por la oportunidad de compartir mi amor por las uñas y el arte contigo."
+    ],
+    "tituloToS": "Acuerdo y Condiciones de Servicio para Manicurista",
+    "contenidoToS": [
+        {
+            "titulo": "1. Servicios Ofrecidos",
+            "descripcion": "La manicurista se compromete a ofrecer servicios de manicura y pedicura de acuerdo con la descripción de cada servicio agendado.<br/>"
+        },
+        {
+            "titulo": "2. Reservaciones y Cancelaciones",
+            "descripcion": "El cliente debe reservar con anticipación. Las cancelaciones deben realizarse con al menos 24 horas de antelación, de lo contrario se aplicará una penalización.<br/>"
+        },
+        {
+            "titulo": "3. Pagos y Tarifas",
+            "descripcion": "Los pagos deben realizarse en efectivo o por medios electrónicos antes o después del servicio. Las tarifas están sujetas a cambios sin previo aviso.<br/>"
+        },
+        {
+            "titulo": "4. Puntualidad",
+            "descripcion": "Se recomienda llegar a tiempo a la cita. Un retraso mayor a 15 minutos puede resultar en la cancelación de la cita sin reembolso.<br/>"
+        },
+        {
+            "titulo": "5. Higiene y Seguridad",
+            "descripcion": "Se garantiza el uso de herramientas esterilizadas y condiciones higiénicas. El cliente debe informar sobre cualquier condición médica relevante.<br/>"
+        },
+        {
+            "titulo": "6. Responsabilidad",
+            "descripcion": "La manicurista no se hace responsable por reacciones alérgicas o efectos adversos debido a productos utilizados.<br/>"
+        },
+        {
+            "titulo": "7. Modificaciones y Cambios",
+            "descripcion": "La manicurista se reserva el derecho de modificar estos términos sin previo aviso. El cliente acepta revisar los términos antes de cada cita.<br/>"
+        }
     ]
 }

@@ -13,6 +13,7 @@ export const UserPassword = ({ formData, handleChange, togglePassword }) => {
                         type={formData.showPassword ? "text" : "password"}
                         className="form-control inputText"
                         name="password"
+                        id='password'
                         placeholder="Debe ser de 8 digitos o mas."
                         value={formData.password}
                         onChange={handleChange}
@@ -29,6 +30,7 @@ export const UserPassword = ({ formData, handleChange, togglePassword }) => {
                         type={formData.showPassword ? "text" : "password"}
                         className="form-control inputText"
                         name="confirmPassword"
+                        id='confirmPassword'
                         value={formData.confirmPassword}
                         onChange={handleChange}
                         required

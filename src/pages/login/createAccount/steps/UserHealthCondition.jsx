@@ -12,6 +12,7 @@ export const UserHealthCondition = ({ formData, handleChange }) => {
                 <select
                     className="form-select"
                     name="healthCondition"
+                    id="healthCondition"
                     value={formData.healthCondition}
                     onChange={handleChange}
                 >
@@ -34,6 +35,7 @@ export const UserHealthCondition = ({ formData, handleChange }) => {
                         type="text"
                         className="form-control inputText"
                         name="otherHealthCondition"
+                        id="otherHealthCondition"
                         value={formData.otherHealthCondition}
                         onChange={handleChange}
                         required

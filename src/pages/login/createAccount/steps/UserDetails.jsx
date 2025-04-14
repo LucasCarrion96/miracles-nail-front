@@ -6,7 +6,7 @@ export const UserDetails = ({ formData, handleChange }) => {
             <div className="userDetails">
                 <h4>Datos personales</h4>
                 <div className="mb-3">
-                    <label htmlFor="name" className="form-label">
+                    <label htmlFor="userName" className="form-label">
                         Nombre
                     </label>
                     <input
@@ -14,6 +14,7 @@ export const UserDetails = ({ formData, handleChange }) => {
                         type="text"
                         className="form-control inputText"
                         name="userName"
+                        id="userName"
                         value={formData.userName}
                         onChange={handleChange}
                         required
@@ -21,7 +22,7 @@ export const UserDetails = ({ formData, handleChange }) => {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="surname" className="form-label">
+                    <label htmlFor="userSurname" className="form-label">
                         Apellido
                     </label>
                     <input
@@ -29,6 +30,7 @@ export const UserDetails = ({ formData, handleChange }) => {
                         type="text"
                         className="form-control inputText"
                         name="userSurname"
+                        id="userSurname"
                         value={formData.userSurname}
                         onChange={handleChange}
                         required
@@ -39,8 +41,8 @@ export const UserDetails = ({ formData, handleChange }) => {
                     <label htmlFor="birthDate" className="form-label">Fecha de nacimiento<small></small></label>
                     <input
                         type="date"
-                        id="nacimiento"
                         name="birthDate"
+                        id="birthDate"
                         value={formData.birthDate}
                         onChange={handleChange}
                         className="form-control inputText" />

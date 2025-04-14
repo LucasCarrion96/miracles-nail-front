@@ -18,7 +18,7 @@ export const AdminCourseTable = () => {
     // Usamos useFetchData en lugar de tableRefreshData
     const { data, error, isLoading, refreshData } = useFetchData(apiUrlEndpoint);
 
-    const { isOpen, selectedData, openModal, closeModal, saveData } = useModalEdit();
+    const { isOpen, selectedData, openModal, closeModal } = useModalEdit();
     const { isOpenText, selectedItem, openTextModal, closeTextModal } = useModalRead();
 
     if (isLoading) return <p>Cargando cursos...</p>;

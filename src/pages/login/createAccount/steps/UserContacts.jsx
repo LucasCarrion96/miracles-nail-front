@@ -14,6 +14,7 @@ export const UserContacts = ({ formData, handleChange }) => {
                         type="tel"
                         className="form-control inputText"
                         name="phone"
+                        id="phone"
                         value={formData.phone}
                         onChange={handleChange}
                         required
@@ -29,6 +30,7 @@ export const UserContacts = ({ formData, handleChange }) => {
                         type="email"
                         className="form-control inputText"
                         name="mail"
+                        id="mail"
                         placeholder="miraclesnail@gmail.com"
                         value={formData.mail}
                         onChange={handleChange}
@@ -45,6 +47,7 @@ export const UserContacts = ({ formData, handleChange }) => {
                         type="email"
                         className="form-control inputText"
                         name="confirmMail"
+                        id="confirmMail"
                         placeholder="miraclesnail@gmail.com"
                         value={formData.ConfirmMail}
                         onChange={handleChange}
