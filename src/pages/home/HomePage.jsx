@@ -2,6 +2,7 @@ import { useContext, useRef } from "react"
 import { Footer } from "../../components/Footer"
 import { LangContext } from "../../context/contextLang/LangContext"
 import { GalleryHome } from "./componentsHome/gallery/GalleryHome";
+import { CollageWorks } from "./componentsHome/collage/CollageWorks"
 import "../../styles/homePage.css"
 
 
@@ -48,11 +49,8 @@ export const HomePage = () => {
                     <img className="headerImg" src="../src/assets/headerImg.png" alt="" />
                 </header>
                 <main>
-
                     <section className="descriptionMain mx-auto" ref={descriptionRef}>
-
                         <div className="descriptionText">
-
                             <h1 className="titlePrincipal titleDescriptionHome">
                                 Arte+Calidad
                             </h1>
@@ -61,22 +59,20 @@ export const HomePage = () => {
                             </h2>
                             <p className="contentText">{Lang.bodyHome}</p>
                             <div className="fresasContainer">
-
                             </div>
                         </div>
                     </section>
-
                     <section className="servicesMain mb-5" ref={servicesRef}>
-                        <GalleryHome></GalleryHome>
-
+                        <GalleryHome />
                     </section>
-
-
-                    <section className="coursesSectionHome" ref={coursesRef}>
+                    <section className="collageWorks">
+                        <CollageWorks />
+                    </section>
+                    { /* <section className="coursesSectionHome" ref={coursesRef}>
 
                         <h1 className="titlePrincipal">Cursos</h1>
 
-                        <div className="coursesSectionHomeContent">
+                         <div className="coursesSectionHomeContent">
                             <img src="src/assets/uñas.png" alt="" />
                             <h2 className="subtitle">Despierta tus talentos</h2>
                             <h2>Aprende todo sobre las uñas,<br />
@@ -85,7 +81,9 @@ export const HomePage = () => {
                             <button>Que Esperas Aprovecha Los mejores precios</button>
 
                         </div>
-                    </section>
+                      
+                        
+                    </section>*/}
 
                     <section className="review" ref={reviewRef}>
                         <h1 className="titlePrincipal">Reseñas</h1>

@@ -1,130 +1,114 @@
-import React, { useEffect, useRef, useCallback, useState } from 'react';
-import './GalleryHome.css';
+// GalleryHome.jsx
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Define an array of slides
-const slides = [
+
+import "./GalleryHome.css";
+
+const images = [
     {
         name: 'Capping',
-        description: 'Técnica utilizada para sellar y proteger el borde libre de las uñas,Técnica utilizada para sellar y proteger el borde libre de las uñas,Técnica utilizada para sellar y proteger el borde libre de las uñas',
-        imageUrl: 'https://picsum.photos/id/1012/1000/600/',
+        description: 'Técnica utilizada para sellar y proteger el borde libre de las uñas...',
+        src: './src/assets/tarjet1.png',
         thumbnail: "https://picsum.photos/id/1012/250/150/",
     },
     {
         name: 'Semi Permanente',
-        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!',
-        imageUrl: 'https://picsum.photos/id/1018/1000/600/',
+        description: 'Aplicación de esmalte semi permanente de larga duración...',
+        src: './src/assets/tarjet2.png',
         thumbnail: "https://picsum.photos/id/1018/250/150/",
     },
     {
         name: 'Esculpidas',
-        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!',
-        imageUrl: 'https://picsum.photos/id/1011/1000/600/',
+        description: 'Construcción de uñas mediante técnicas de escultura profesional...',
+        src: './src/assets/tarjet3.png',
         thumbnail: "https://picsum.photos/id/1011/250/150/"
     },
     {
         name: 'Dual System',
-        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!',
-        imageUrl: 'https://picsum.photos/id/1016/1000/600/',
+        description: 'Sistema rápido para esculpir uñas usando moldes especiales...',
+        src: './src/assets/tarjet1.png',
         thumbnail: "https://picsum.photos/id/1016/250/150/",
     },
     {
         name: 'Soft Gel',
-        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!',
-        imageUrl: 'https://picsum.photos/id/1015/1000/600/',
+        description: 'Uñas en gel suave con terminaciones naturales y resistentes...',
+        src: './src/assets/tarjet2.png',
         thumbnail: "https://picsum.photos/id/1015/250/150/",
     },
     {
         name: 'Nail Art y 3D Design',
-        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!',
-        imageUrl: 'https://picsum.photos/id/1019/1000/600/',
+        description: 'Decoraciones artísticas y diseños en 3D para uñas personalizadas...',
+        src: './src/assets/tarjet3.png',
         thumbnail: "https://picsum.photos/id/1019/250/150/",
     }
 ];
 
 export const GalleryHome = () => {
-    const [currentIndex, setCurrentIndex] = useState(1);
-    const [loaded, setLoaded] = useState(false); // Estado para controlar la carga de la imagen actual
-    const slideRef = useRef(null);
-    const nextRef = useRef(null);
-    const prevRef = useRef(null);
+    const [current, setCurrent] = useState(0);
+    const image = images[current];
 
-    const handleNextClick = useCallback(() => {
-        const slide = slideRef.current;
-        if (slide) {
-            const items = slide.querySelectorAll('.itemThumbnail');
-            if (items.length > 0) {
-                slide.appendChild(items[0]);
-                setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-                setLoaded(false); // Reiniciar el estado de carga
-            }
-        }
-    }, []);
+    const handleNext = () => {
+        setCurrent((prev) => (prev + 1) % images.length);
+    };
 
-    const handlePrevClick = useCallback(() => {
-        const slide = slideRef.current;
-        if (slide) {
-            const items = slide.querySelectorAll('.itemThumbnail');
-            if (items.length > 0) {
-                slide.prepend(items[items.length - 1]);
-                setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
-                setLoaded(false); // Reiniciar el estado de carga
-            }
-        }
-    }, []);
+    const handlePrev = () => {
+        setCurrent((prev) => (prev - 1 + images.length) % images.length);
+    };
 
+    // ⏱️ Efecto con temporizador
     useEffect(() => {
-        const next = nextRef.current;
-        const prev = prevRef.current;
+        const interval = setInterval(() => {
+            handleNext();
+        }, 7000); // cambia cada 5 segundos
 
-        if (next && prev) {
-            next.addEventListener('click', handleNextClick);
-            prev.addEventListener('click', handlePrevClick);
-
-            return () => {
-                next.removeEventListener('click', handleNextClick);
-                prev.removeEventListener('click', handlePrevClick);
-            };
-        }
-    }, [handleNextClick, handlePrevClick]);
-
-    // Añadir un retraso en la carga para mostrar el fade correctamente
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoaded(true); // Cambiar el estado de la imagen a cargada después de un retraso
-        }, 300); // Retraso de 300ms para que el fade sea visible
-
-        return () => clearTimeout(timer); // Limpiar el temporizador si el componente se desmonta
-    }, [currentIndex]);
-
-    const currentSlide = slides[currentIndex];
+        return () => clearInterval(interval); // limpia al desmontar
+    }, []);
 
     return (
-        <div className="containerSlider">
-            <div className="slideIndex">
-                {/* Imagen con retraso y onLoad */}
-                <img
-                    className={`imgIndex ${loaded ? 'loaded' : ''}`}
-                    src={currentSlide.imageUrl}
-                    alt=""
-                    onLoad={() => setLoaded(false)} // Reinicia el estado cuando comienza la carga
-                />
-                <div className="content">
-                    <h2 className='name'>{currentSlide.name}</h2>
-                    <p className='des'>{currentSlide.description}</p>
-                    <button className='btnSeeMore'>Quiero esto !!!</button>
-                </div>
-            </div>
-            <div className="thumbnailGallery" ref={slideRef}>
-                {slides.map((slide, index) => (
-                    <div key={index} className="itemThumbnail" style={{ backgroundImage: `url(${slide.thumbnail})` }}>
-                        <h1>{slide.name}</h1>
-                    </div>
-                ))}
+        <div className="gallery-container">
+            <div className="gallery-controls">
+                <button className='rightleftButton' onClick={handlePrev}>
+                    <ChevronLeft size={35} />
+                </button>
+                <button className='rightleftButton' onClick={handleNext}>
+                    <ChevronRight size={35} />
+                </button>
             </div>
 
-            <div className="button">
-                <button className="prev" ref={prevRef}>&#10096;</button>
-                <button className="next" ref={nextRef}>&#10097;</button>
+            <div className="gallery-image-wrapper">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={image.src}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="gallery-fade-layer"
+                    >
+                        <img src={image.src} alt={image.name} />
+                        <div className="gradient-overlay" />
+                    </motion.div>
+                </AnimatePresence>
+                <div className='gallery-overlay'>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={image.name}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="gallery-overlay-content"
+                        >
+                            <h2 className="gallery-title">{image.name}</h2>
+                            <p className="gallery-description">{image.description}</p>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+            </div>
+            <div className="gallery-counter">
+                {current + 1} / {images.length}
             </div>
         </div>
     );

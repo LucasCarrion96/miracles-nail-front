@@ -9,9 +9,11 @@ import { UserPage } from "../pages/userProfile/UserPage";
 import { UserConfig } from "../pages/userProfile/UserConfig";
 import { DashboardPage } from "../pages/dashboard/DashboardPage";
 import { CreateAccount } from "../pages/login/createAccount/CreateAccount";
+import { RecoverPassword } from "../pages/login/recoveryAccount/RecoverPassword";
 import { PaymentDeposit } from "../pages/turns/PaymentDeposit"
 import { PublicRoutes } from "./PublicRoutes";
 import { PrivateRoutes } from "./PrivateRoutes";
+
 
 export const RoutesNav = () => {
     return (
@@ -33,6 +35,15 @@ export const RoutesNav = () => {
                     <CreateAccount />
                 </PublicRoutes>
             }
+
+            />
+
+            <Route path="/iniciar-sesion/recuperar-password" element={
+                <PublicRoutes>
+                    <RecoverPassword />
+                </PublicRoutes>
+            }
+
             />
 
             {/* Rutas privadas */}
