@@ -1,39 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/*
-.anton-regular {
-    font-family: "Anton", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
 
+/* 
+🧷 BASE TYPO ESCALA (Escritorio) en rem (basado en 1rem = 16px)
 
-paleta de colores
+Tipo de texto               Tamaño (rem)     Peso (font-weight)      Comentario
+👑 Título principal (H1)     3rem–3.75rem     400–600                 Solo uno por página. Usá tipografía decorativa si querés
+🪄 Subtítulo (H2)            2rem–2.5rem      400–500                 Ideal para hero section o secciones clave
+📣 Título de sección (H3)    1.5rem–1.875rem  400–500                 Para encabezados de secciones internas
+📝 Texto principal (p)       1rem–1.125rem    400                     Lectura cómoda. 1.125rem si hay mucho aire visual
+💬 Descripción corta         0.875rem–0.9375rem 300–400              Debajo de títulos, campos de formulario, cards
+⚠ Detalle / legal / gris     0.75rem–0.8125rem  300–400              Términos, fechas, leyendas, condiciones
+🔘 Botones                   1rem–1.125rem    500–700                 Deben ser legibles, especialmente en móvil
+🧾 Inputs / forms            1rem            400–500                 Estándar ideal para UX accesible
 
-blanco #f5f4ef
-rosa claro #fcc5ca
-rosa #f39b9f
-marron #816f63
-marron claro #c2afa1
-crema #e7d6d2
+📱 Mobile (max-width: 768px)
 
+Tipo                        Tamaño recomendado (rem)
+H1                          2rem–2.5rem     (32–40px)
+H2                          1.5rem–1.875rem (24–30px)
+H3                          1.25rem–1.5rem  (20–24px)
+Texto general               0.9375rem–1rem  (15–16px)
+Descripciones pequeñas      0.8125rem–0.875rem (13–14px)
+Botones / Inputs            1rem            (16px)
 */
 
-
-
 :root {
-    --bgTextColor: #daa0c33f;
     --bgTextShadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.329);
     --bgShadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.329);
     --backFilter: blur(5px);
-    --white: #f5f4ef !important;
-    --light-pink: #EDCFD3 !important;
-    --pink: #E5A8B1 !important;
-    --rose: #D9A7A4 !important;
-    --light-brown: #E3D5CA !important;
-    --light-brown-opacity: #e3d5caa4 !important;
-    --cream: #F8EDEB !important;
-    --lile: #E1CADA !important;
+    --white-bone: #FAFAFA !important;
+    --pink: #F6C1D9 !important;
+    --deep-pink: #D96A8B !important;
+    --gray-pearl: #ECECEC !important;
+    --light-black: #2B2B2B !important;
+    --danger: #E57373 !important;
+    --success: #81C784 !important;
+    --pink-fade: #1a0c128a !important;
 
 }
 
@@ -41,17 +44,17 @@ body {
     padding: 0;
     margin: 0 auto;
     box-sizing: border-box;
-    background: var(--white);
+    background: var(--white-bone);
     font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
+    width: 100%;
 
 
 }
 
-
-
-.bgText {
+/* Bg Colors */
+.bg-text {
     border-radius: 20px;
     box-shadow: var(--bgTextShadow);
     background: var(--bgTextColor);
@@ -59,83 +62,174 @@ body {
     backdrop-filter: var(--backFilter);
 }
 
-.bgNavFooter {
-    background: var(--light-pink) !important;
+.bg-pink {
+    background: var(--pink) !important;
+}
+
+.bg-deep-pink {
+    background: var(--deep-pink) !important;
+}
+
+.textWhite {
+    color: var(--white-bone) !important;
+}
+
+.bg-gray-pearl {
+    background: var(--gray-pearl) !important;
+}
+
+.bg-light-black {
+    background: var(--light-black) !important;
+    color: var(--white-bone) !important;
+}
+
+
+/* Buttons */
+.btn-rounded {
+    border-radius: 50%;
+    transition: all .6s ease;
+    border: 2px solid var(--light-black);
+    height: auto;
+}
+
+.btn {
+    border: 2px solid var(--light-black);
+    border-radius: 20px;
 }
 
 .btnPink {
-    background: var(--light-pink) !important;
+    background: var(--pink) !important;
+    color: black !important;
+    text-shadow: var(--bgTextShadow) !important;
 }
 
-.titlePrincipal {
+.btn-danger {
+    background: var(--danger) !important;
+    color: var(--white-bone) !important;
+}
+
+.bg-success {
+    background: var(--success) !important;
+    color: var(--white-bone) !important;
+}
+
+/* Typography (rem scale based on 1rem = 16px) */
+.title-principal {
     font-family: "Fascinate", system-ui;
+    font-size: 3.75rem;
+    /* 60px */
     font-weight: 400;
-    font-style: normal;
-    font-size: 40px;
-    text-shadow: 2px 2px 5px rgba(37, 37, 37, 0.794);
+    line-height: 1.1;
+    letter-spacing: 0.1rem;
 }
 
 .title {
-    font-weight: 400;
-    font-size: 30px;
-
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    /* 48px */
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 .subtitle {
+    font-size: 2rem;
+    /* 32px */
     font-weight: 400;
-    font-size: 24px;
-
-
+    font-family: "Playfair Display", serif;
+    line-height: 1.3;
 }
 
-.contentText {
-    font-weight: 700;
-    font-size: 18px;
-
-
+.content-text {
+    font-size: 1.125rem;
+    /* 18px */
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
 }
 
-.btnSeeMore {
+.small-text {
+    font-size: 0.875rem;
+    /* 14px */
+    font-weight: 400;
+    color: var(--light-black);
+    line-height: 1.4;
+}
+
+.legal-text {
+    font-size: 0.75rem;
+    /* 12px */
+    font-weight: 300;
+    color: gray;
+    line-height: 1.3;
+}
+
+.btn-text {
+    font-size: 1rem;
+    /* 16px */
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.input-text {
+    font-size: 1rem;
+    /* 16px */
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Buttons */
+
+.btn-see-more {
     border-radius: 20px;
-    background-color: var(--pink);
-    border: 2px solid black;
-    color: black;
+    background-color: var(--deep-pink);
+    border: 1px solid var(--light-black);
+    color: var(--white-bone);
+    font-size: 20px;
     transition: all .6s ease;
 }
 
-.btnSeeMore:hover {
-    background-color: var(--rose);
-    border: 2px solid rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
+.btn-see-more:hover {
+    background-color: var(--gray-pearl);
+    color: var(--light-black);
     box-shadow: 0px 0px 10px white;
+}
+
+.boreder-radius-20 {
+    border-radius: 20px;
 }
 
 
 
+@media screen and (max-width: 768px) {
 
-@media screen and (min-width: 760px) {
-
-    .titlePrincipal {
-
-        font-size: 60px;
-        letter-spacing: 3px;
-
+    .title-principal {
+        font-size: 2.5rem;
+        /* 40px */
     }
 
     .title {
-        font-weight: 400;
-        font-size: 54px;
+        font-size: 2.25rem;
+        /* 36px */
     }
 
     .subtitle {
-        font-weight: 400;
-        font-size: 35px;
-        margin-bottom: 10px;
+        font-size: 1.75rem;
+        /* 28px */
     }
 
-    .contentText {
-        font-weight: 400;
-        font-size: 20px;
-
+    .content-text {
+        font-size: 1rem;
+        /* 16px */
     }
+
+    .small-text {
+        font-size: 0.875rem;
+        /* 14px */
+    }
+
+    .legal-text {
+        font-size: 0.75rem;
+        /* 12px */
+    }
+
 }

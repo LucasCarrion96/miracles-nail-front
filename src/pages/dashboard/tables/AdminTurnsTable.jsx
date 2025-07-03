@@ -46,16 +46,18 @@ export const AdminTurnsTable = () => {
     return (
         <>
             <div className="tableHeader">
-                <h2 className="subtitle">Turnos</h2>
-                <button onClick={handleRefresh} >
-                    refresh
-                </button>
-                <button onClick={handleHardRefresh} >
-                    hard refresh
-                </button>
+                <h2 className="title">Turnos</h2>
+                <div>
+                    <button className='btn' onClick={handleRefresh} >
+                        refresh
+                    </button>
+                    <button className='btn' onClick={handleHardRefresh} >
+                        hard refresh
+                    </button>
+                </div>
             </div>
-            <div className='dashboardTable'>
-                <table className="table table-hover">
+            <div className='dashboard-table'>
+                <table className="table-custom">
                     <thead>
                         <tr>
                             <th scope="col">Fecha</th>
@@ -76,12 +78,12 @@ export const AdminTurnsTable = () => {
                                 <td>{turn.Schedule.timeSchedule.split(':').slice(0, 2).join(':')}</td>
                                 <td>{turn.Service.nameService}</td>
                                 <td>
-                                    <button onClick={() => handleShowAgregados(turn)}>
+                                    <button className='btn' onClick={() => handleShowAgregados(turn)}>
                                         Ver Más
                                     </button>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleShowHealthConditions(turn)}>
+                                    <button className='btn' onClick={() => handleShowHealthConditions(turn)}>
                                         Afecciones
                                     </button>
                                 </td>
@@ -89,7 +91,7 @@ export const AdminTurnsTable = () => {
                                 <td>{turn.User.userSurname}</td>
                                 <td>{turn.confirmed === 0 ? 'No' : 'Si'}</td>
                                 <td>
-                                    <button onClick={() => handleDeleteTurn(turn.idTurns)}>
+                                    <button className='btn btn-danger' onClick={() => handleDeleteTurn(turn.idTurns)}>
                                         Eliminar
                                     </button>
                                 </td>

@@ -51,7 +51,7 @@ export const useSubmitConfirm = (showAlert, hideAlert, apiUrl, selectedDate, ser
 
         // Función para manejar la reserva
         const handleReserve = async () => {
-            const success = await confirmData(apiUrl); // Llama a confirmData para reservar
+            const success = await confirmData(totalPrice); // Llama a confirmData para reservar
             console.log('Resultado de la reserva:', success); // Log del resultado
             if (success && success.idTurns) {
                 const turnId = success.idTurns; // Suponiendo que el éxito de la respuesta contiene el ID del turno
@@ -66,7 +66,7 @@ export const useSubmitConfirm = (showAlert, hideAlert, apiUrl, selectedDate, ser
 
         // Función para manejar la seña
         const handleSignNow = async () => {
-            const success = await confirmData(apiUrl);
+            const success = await confirmData(totalPrice);
             console.log('datos de confirm data', success)
             const turnId = success?.idTurns || null; // Proporciona un valor predeterminado si idTurns no existe
             console.log('Resultado de la seña:', success);
@@ -76,6 +76,7 @@ export const useSubmitConfirm = (showAlert, hideAlert, apiUrl, selectedDate, ser
                     state: {
                         turnId: turnId,
                         service: serviceDetails.nameService,
+                        servicePrice: serviceDetails.price,
                         serviceAdd: radioServiceDetails,
                         totalPrice: totalPrice,
                         señaPrice: señaPrice,

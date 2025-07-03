@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { LangContext } from "../../context/contextLang/LangContext";
-import "../../styles/loginStyle.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-
+import "../../components/form/form-style.css"; // Asegúrate de que la ruta sea correcta
+import "../../styles/loginStyle.css";
 export const LoginPage = () => {
     const Lang = useContext(LangContext);
     const [email, setEmail] = useState("");
@@ -29,20 +29,20 @@ export const LoginPage = () => {
     };
 
     return (
-        <div className="bgText loginBg">
-            <form className="container login" onSubmit={handleLogin}>
-                <div className="loginTitle">
-                    <h1>Inicia Sesión Para Continuar</h1>
+        < >
+            <form className="login bg-pink" onSubmit={handleLogin}>
+                <div className="login-title">
+                    <h1 className="title">Inicia Sesión Para Continuar</h1>
                 </div>
 
                 {/* Campo de Correo */}
-                <div className="mb-3">
+                <div className="form-group ">
                     <label htmlFor="email" className="form-label">
                         Correo Electrónico
                     </label>
                     <input
                         type="email"
-                        className="form-control"
+                        className="input-form"
                         id="email"
                         name="email"
                         value={email}
@@ -53,26 +53,24 @@ export const LoginPage = () => {
                 </div>
 
                 {/* Campo de Contraseña */}
-                <div className="mb-3 position-relative">
+                <div className="form-group ">
                     <label htmlFor="password" className="form-label">
                         Contraseña
                     </label>
-                    <div className="input-group">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            className="form-control"
-                            id="password"
-                            name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                            autoComplete="current-password" // Indica que es la contraseña actual
-                        />
-                    </div>
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        className="input-form"
+                        id="password"
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        autoComplete="current-password" // Indica que es la contraseña actual
+                    />
                 </div>
 
                 {/* Checkbox para ver/ocultar contraseña */}
-                <div className="mb-3 form-check">
+                <div className="login-control">
                     <input
                         type="checkbox"
                         className="form-check-input"
@@ -87,20 +85,20 @@ export const LoginPage = () => {
 
                 {/* Mensaje de error */}
                 {error && <p style={{ color: "red" }}>{error}</p>}
-
-                {/* Enlaces */}
-                <Link to="/iniciar-sesion/crear-cuenta">Crear Cuenta</Link>
-                <br />
-                <Link to="/iniciar-sesion/recuperar-password">
-                    ¿Olvidaste tu contraseña?
-                </Link>
-                <br />
+                <div>
+                    {/* Enlaces */}
+                    <Link className="small-text" to="/iniciar-sesion/crear-cuenta">Crear Cuenta</Link>
+                    <br />
+                    <Link className="small-text" to="/iniciar-sesion/recuperar-password">
+                        ¿Olvidaste tu contraseña?
+                    </Link>
+                </div>                <br />
 
                 {/* Botón de ingreso */}
                 <button type="submit" className="btn btn-primary">
                     Ingresar
                 </button>
             </form>
-        </div>
+        </>
     );
 };

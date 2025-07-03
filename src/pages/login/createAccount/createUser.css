@@ -1,37 +1,54 @@
-.createAccountContainer {
-    width: 80vw;
-    height: 70vh;
-    min-height: 300px;
-    position: relative;
-    overflow: hidden;
+.create-account-container {
     margin: auto;
-
-    padding: 10px;
-    border: 2px solid black;
+    margin-top: 100px;
+    width: 80vw;
+    max-width: 600px;
+    max-height: auto;
+    min-height: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
-.animatedStep>div {
-    width: 70%;
+
+.create-account-content {
+    width: 100%;
     height: 100%;
-    /* ← Fijo para todos los pasos */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.create-account-title>h1 {
+    margin: 0;
+}
+
+.animated-step {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
 }
 
-.animatedStep>div>div {
+.animated-step>div>div {
     width: 100%;
 }
 
-.buttonContainer {
+.footer-form {
+
+    background-color: red;
     width: 100%;
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    padding: 0 20px;
+    height: auto;
+    bottom: 0;
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+}
+
+.buttonContainer {
+    display: flex;
     align-items: center;
 }
 
@@ -40,4 +57,21 @@
     height: 50px;
     border-radius: 50%;
     margin: 0px 10px;
+}
+
+.buttonContainer>a {
+    flex: 0 0 100%;
+}
+
+.react-datepicker-popper {
+    z-index: 10 !important;
+}
+
+
+
+
+.custom-date-label,
+.custom-date-icon {
+    pointer-events: none !important;
+    /* permite que el click pase al botón */
 }

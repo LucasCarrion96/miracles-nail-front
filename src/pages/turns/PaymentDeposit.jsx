@@ -31,8 +31,8 @@ export const PaymentDeposit = () => {
 
     console.log(turnId);
     const {
-
         service,
+        servicePrice,
         serviceAdd,
         totalPrice,
         señaPrice,
@@ -42,17 +42,18 @@ export const PaymentDeposit = () => {
         threeDCount,
         caricatureCount,
     } = state || {}; // Usa fallback en caso de acceso directo
+    console.log("Datos del turno:", state);
 
     return (
         <div className='paymentBody'>
             <h1>Factura del Turno</h1>
             <h1>{turnId}</h1>
-            <p>Servicio principal: {service} - ${service?.price}</p>
+            <p>Servicio principal: {service} - ${servicePrice}</p>
             <p>Servicio adicional: {serviceAdd?.nameService} - ${serviceAdd?.price}</p>
             <p>Nail Art: {nailArtCount}</p>
             <p>3D: {threeDCount}</p>
             <p>Caricatura: {caricatureCount}</p>
-            <p>Fecha: {turnDay} - Horario: 09:0{horario}</p>
+            <p>Fecha: {turnDay} - Horario: {horario}</p>
             <p><strong>Total: ${totalPrice}</strong></p>
             <p><strong>Seña: ${señaPrice}</strong></p>
         </div>

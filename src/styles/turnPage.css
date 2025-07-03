@@ -1,19 +1,27 @@
-.turnHeader {
+.turn-body {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+
+.turn-header {
     position: relative;
     display: flex;
     gap: 10px;
+    height: 100px;
     width: 100%;
+    justify-content: space-between;
     align-items: center;
-    padding: 100px 0px 10px 0px;
-    background: var(--pink);
+    padding: 80px 0px 10px 0px;
     border: solid black;
     border-width: 0px 0px 2px 0px;
 
 }
 
 
-.turnTitle {
-    padding: 0px 10px 0px 10px;
+.turn-title {
+    padding: 0px 10px 0px 60px;
 }
 
 .calendar-container {
@@ -44,37 +52,41 @@
 }
 
 .calendar-week {
-    font-size: 20px !important;
+    font-size: 14px !important;
     border-radius: 5px;
     text-align: center;
 }
 
-.numberDay {
-    font-size: 18px !important;
+.number-day {
+    font-size: 12px !important;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    text-align: center;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     background-color: var(--pink);
     border: 0px solid black;
 }
 
 
 
-.numberDay:active {
+.number-day:active {
     background-color: rosybrown;
     box-shadow: 2px 2px 10px 5px rgb(118, 118, 118);
 }
 
 
 
-.dateText {
+.date-text {
     font-size: 15px;
     text-transform: capitalize;
 
 }
 
-.buttonDate {
+.button-date {
     display: flex;
     position: absolute;
     gap: 5px;
@@ -83,7 +95,7 @@
 
 }
 
-.buttonDate button {
+.button-date button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -93,19 +105,19 @@
     transition: .6s all ease;
 }
 
-.buttonDate button:active {
+.button-date button:active {
     background-color: var(--rose);
     text-align: center;
     box-shadow: 2px 2px 2px rgb(114, 114, 114);
 }
 
-.buttonDate button:hover {
+.button-date button:hover {
     background-color: var(--rose);
     text-align: center;
     box-shadow: 2px 2px 2px rgb(114, 114, 114);
 }
 
-.turnHour {
+.turn-hour {
 
     font-size: 20px;
     margin: 20px;
@@ -119,29 +131,22 @@
     border: black !important;
 }
 
-.showSpiner {
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    z-index: 10;
-    opacity: 1;
-    transition: 0.6s;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hiddenSpiner {
-    opacity: 0;
-    transition: opacity 0.6s ease-out;
-    pointer-events: none;
-}
-
-.showSpiner h1 {
-    margin-top: 200px;
+.spinner-overlay h1 {
     font-size: 60px;
     color: white;
-
 }
 
 
@@ -170,13 +175,13 @@
     }
 
     .calendar-week {
-        font-size: 24px !important;
+        font-size: 18px !important;
         border-radius: 5px;
-        width: 60px;
-        text-align: center;
+        width: 50px;
+        letter-spacing: 3px;
     }
 
-    .numberDay {
+    .number-day {
         font-size: 18px !important;
         border-radius: 20px;
         width: 80px;
@@ -185,7 +190,7 @@
         transition: .6s all ease;
     }
 
-    .numberDay:hover {
+    .number-day:hover {
         background-color: var(--rose);
         box-shadow: 2px 2px 5px 0px rgb(64, 64, 64);
     }
@@ -193,26 +198,28 @@
     .week {
         border-bottom: 2px solid black;
         margin-bottom: 10px;
+        height: 40px;
+        align-items: center;
     }
 
 
 
-    .dateText {
+    .date-text {
         font-size: 15px;
         margin: 5px;
     }
 
-    .monthDate {
+    .month-date {
         margin-right: 20px;
 
     }
 
-    .buttonDate {
+    .button-date {
         position: relative;
         padding-left: 10px;
     }
 
-    .turnHour {
+    .turn-hour {
 
         font-size: 20px;
         margin: 20px;

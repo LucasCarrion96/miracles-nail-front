@@ -48,11 +48,12 @@ export const UserPage = () => {
             state: {
                 turnId: turn.idTurns,
                 service: turn.Service.nameService,
+                servicePrice: turn.Service.price,
                 serviceAdd: turn.AdditionalService.nameService,
                 totalPrice: turn.totalPrice,
                 señaPrice: turn.totalPrice * .5,
                 turnDay: turn.turnDay,
-                horario: 100,
+                horario: turn.idSchedule,
                 nailArtCount: turn.nailArtQuantity,
                 threeDCount: turn["3dQuantity"],
                 caricatureCount: turn.caricatureQuantity,

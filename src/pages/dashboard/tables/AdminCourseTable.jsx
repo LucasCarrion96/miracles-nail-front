@@ -69,41 +69,42 @@ export const AdminCourseTable = () => {
     return (
         <>
             <div>
-                <h2>Cursos</h2>
+                <h2 className='title'>Cursos</h2>
             </div>
-            <table className="turnTable table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Curso</th>
-                        <th scope="col">Categoría</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Duración</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map(course => (
-                        <tr key={course.idCourse}>
-                            <th scope="row">{course.idCourse}</th>
-                            <td>{course.title}</td>
-                            <td>{course.category}</td>
-                            <td>
-                                <button onClick={() => openTextModal(course)}>Leer</button>
-                            </td>
-                            <td>{course.price}</td>
-                            <td>{course.duration}</td>
-                            <td>
-                                <button onClick={() => openModal(course)}>Editar</button>
-                            </td>
-                            <td><button>Eliminar</button></td>
+            <div className='dashboard-table'>
+                <table className="table-custom">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">Categoría</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Duración</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-
+                    </thead>
+                    <tbody>
+                        {data.map(course => (
+                            <tr key={course.idCourse}>
+                                <th scope="row">{course.idCourse}</th>
+                                <td>{course.title}</td>
+                                <td>{course.category}</td>
+                                <td>
+                                    <button className='btn' onClick={() => openTextModal(course)}>Leer</button>
+                                </td>
+                                <td>{course.price}</td>
+                                <td>{course.duration}</td>
+                                <td>
+                                    <button className='btn' onClick={() => openModal(course)}>Editar</button>
+                                </td>
+                                <td><button className='btn btn-danger'>Eliminar</button></td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             <ModalOnlyText
                 isOpenText={isOpenText}
                 onCloseText={closeTextModal}

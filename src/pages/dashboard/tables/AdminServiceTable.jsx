@@ -55,30 +55,31 @@ export const AdminServiceTable = () => {
         <>
             <div>
                 <h2>Servicios</h2>
-                <table className="turnTable table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Servicio</th>
-                            <th scope="col">Duración</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Modificar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map(service => (
-                            <tr key={service.idService}>
-                                <th scope="row">{service.idService}</th>
-                                <td>{service.nameService}</td>
-                                <td>{service.duration}</td>
-                                <td>{service.price}</td>
-                                <td><button onClick={() => openModal(service)}>Modificar</button></td>
+                <div className='dashboard-table'>
+                    <table className="table-custom">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Servicio</th>
+                                <th scope="col">Duración</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Modificar</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {data.map(service => (
+                                <tr key={service.idService}>
+                                    <th scope="row">{service.idService}</th>
+                                    <td>{service.nameService}</td>
+                                    <td>{service.duration}</td>
+                                    <td>{service.price}</td>
+                                    <td><button className='btn' onClick={() => openModal(service)}>Modificar</button></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
             <ModalModifyTables
                 isOpen={isOpen}
                 onClose={closeModal}

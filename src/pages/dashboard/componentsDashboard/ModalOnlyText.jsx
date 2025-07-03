@@ -1,22 +1,22 @@
+import { X } from "lucide-react";
 import "../componentsDashboard/modalModifyTables.css";
 
 export const ModalOnlyText = ({ isOpenText, isOpenList, onCloseText, onCloseList, title, content, listItems }) => {
     if (!isOpenText && !isOpenList) return null;
 
     return (
-        <div className="modalTextOnly" style={{ display: isOpenText || isOpenList ? 'block' : 'none' }}>
-            <div className="modalContent">
+        <div className="modalTextOnly " style={{ display: isOpenText || isOpenList ? 'block' : 'none' }}>
+            <div className="modalContent bg-pink">
                 <div
-                    className="closeModal"
+                    className="close-modal"
                 >
-                    <button
-
-                        onClick={isOpenText ? onCloseText : onCloseList}>
-                        Cerrar
-                    </button>
+                    <X
+                        size={18}
+                        onClick={isOpenText ? onCloseText : onCloseList}
+                    />
                 </div>
-                <h2>{title}</h2>
-                <div className="modalText">
+                <h2 className="title modal-tables-title">{title}</h2>
+                <div className="modal-text content-text">
                     {isOpenText && <p>{content}</p>}
                     {isOpenList && (
                         <ul>

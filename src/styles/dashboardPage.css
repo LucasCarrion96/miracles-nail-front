@@ -4,29 +4,88 @@
     margin: 0;
 }
 
-.dashboardHeader {
-    padding: 100px 0px 10px 20px;
+.dashboard-header {
+    padding: 90px 20px 20px 20px;
 }
 
-.tableHeader {
+.dashboard-header h1 {
+    margin: 0;
+}
+
+.admin-name {
+    color: var(--pink);
+    margin-bottom: 20px !important;
+}
+
+.table-header {
     padding: 5px 5px 5px 20px;
 }
 
-.dashboardTable {
-    margin: 0;
+.dashboard-form {
+    width: 300px;
+    height: 45px;
     padding: 0;
+    margin-top: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-table {
+    margin: 0;
+    padding: 10px;
     width: 100%;
     position: relative;
     overflow: auto !important;
-
+    box-sizing: border-box;
 }
 
-.formTable {
+.form-table {
     display: flex;
 }
 
-.table {
 
-    width: 100% !important;
+.table-custom {
+    background-color: var(--pink);
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    letter-spacing: 2PX;
+    padding: 5px;
+    transition: .6s all ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
+}
+
+/*bt tabla*/
+
+
+/* Encabezado */
+.table-custom thead {
+    background-color: var(--light-black);
+    color: var(--white-bone);
+    font-weight: bold;
+}
+
+/* Celdas (todas) */
+.table-custom th,
+.table-custom td {
+    border: 1px solid var(--white-bone);
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-custom tr {
+    transition: background-color 0.3s ease;
+}
+
+.table-custom thead th {
+    padding: 15px;
+}
+
+/* Hover de filas */
+.table-custom tbody tr:hover {
+    background-color: var(--gray-pearl);
 }

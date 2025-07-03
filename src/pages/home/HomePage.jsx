@@ -30,39 +30,43 @@ export const HomePage = () => {
     return (
         <>
             <div className="Home">
-                <header className="headerHome">
-                    <ul className="listHeader">
-                        <li className="itemHeader" onClick={() => scrollToRef(descriptionRef)}>Trabajo</li>
-                        <li className="itemHeader" onClick={() => scrollToRef(servicesRef)}>Servicios</li>
-                        <li className="itemHeader" onClick={() => scrollToRef(coursesRef)}>Cursos</li>
-                        <li className="itemHeader" onClick={() => scrollToRef(reviewRef)}>Reseñas</li>
+                <header className="header-home">
+                    <ul className="list-header bg-gray-pearl">
+                        <li className="item-header" onClick={() => scrollToRef(descriptionRef)}>Trabajo</li>
+                        <li className="item-header" onClick={() => scrollToRef(servicesRef)}>Servicios</li>
+                        <li className="item-header" onClick={() => scrollToRef(coursesRef)}>Cursos</li>
+                        <li className="item-header" onClick={() => scrollToRef(reviewRef)}>Reseñas</li>
                     </ul>
-                    <div className="headerContent">
-                        <h2 className="subtitle">BIENVENIDO A</h2>
-                        <h1 className="titleHome titlePrincipal">Miracles Nail Studio</h1>
+                    <div className="header-content">
+                        <h2 className="title">BIENVENIDO A</h2>
+                        <h1 className="title-principal">Miracles Nail Studio</h1>
                         <h1 className="subtitle">Fantasia y Belleza</h1>
-                        <p className="textHome contentText">
+                        <p className="text-home content-text">
                             Una sueño que se puede hacer realidad <br />
                             No esperes mas y tansforma tus manos</p>
-                        <button className="btnSeeMore">Registrarse</button>
+                        <button className="btn-see-more input-text">Registrarse</button>
                     </div>
-                    <img className="headerImg" src="../src/assets/headerImg.png" alt="" />
+
                 </header>
                 <main>
-                    <section className="descriptionMain mx-auto" ref={descriptionRef}>
-                        <div className="descriptionText">
-                            <h1 className="titlePrincipal titleDescriptionHome">
-                                Arte+Calidad
-                            </h1>
+                    <section className="description-main" ref={descriptionRef}>
+                        <div className="description-text">
+                            <div className="custom-title-bg">
+                                <div className="title-block-color-1"></div>
+                                <div className="title-block-color-2"></div>
+                                <h1 className="title title-description-home">
+                                    Arte+Calidad
+                                </h1>
+                            </div>
                             <h2 className="subtitle">
-                                con atencion personalizada
+                                Atencion Personalizada
                             </h2>
-                            <p className="contentText">{Lang.bodyHome}</p>
-                            <div className="fresasContainer">
+                            <p className="content-text">{Lang.bodyHome}</p>
+                            <div className="fresas-container">
                             </div>
                         </div>
                     </section>
-                    <section className="servicesMain mb-5" ref={servicesRef}>
+                    <section className="services-main" ref={servicesRef}>
                         <GalleryHome />
                     </section>
                     <section className="collageWorks">
@@ -86,7 +90,7 @@ export const HomePage = () => {
                     </section>*/}
 
                     <section className="review" ref={reviewRef}>
-                        <h1 className="titlePrincipal">Reseñas</h1>
+                        <h1 className="title">Reseñas</h1>
                         <div>
                             <div>
                                 <h2>Deja tu reseña</h2>

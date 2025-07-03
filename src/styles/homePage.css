@@ -2,44 +2,96 @@
    margin: 0 auto;
    padding: 0;
    width: 100%;
+   box-sizing: border-box;
 }
 
-.headerHome,
-.descriptionMain,
-.servicesMain,
-.collageWorks,
-.coursesSectionHome,
+.header-home,
+.description-main,
+.services-main,
+.collageworks,
+.courses-section-home,
 .review {
-   height: 100vh;
+   min-height: 100vh;
    width: 100%;
    margin-top: -10px;
 
 }
 
-.servicesMain {
+.services-main {
    display: grid;
    place-items: center;
 }
 
-.headerHome {
+.header-home {
+   text-align: center;
+   margin-bottom: 80px;
    width: 100%;
-   margin-bottom: 30px;
+   background: linear-gradient(0deg,
+         rgba(53, 53, 53, 0.5) 0%,
+         rgba(77, 77, 77, 0.5) 100%),
+      url("../src/assets/headerImg.png"),
+      center center no-repeat;
+   background-size: cover;
+   border-bottom-right-radius: 25%;
+   border-bottom-left-radius: 25%;
 }
 
-.headerImg {
+.custom-title-bg {
    position: absolute;
-   height: 100%;
-   width: 100%;
-   top: 0;
-   left: 0;
+   height: 3.5rem;
+   top: -35px;
+   left: -20px;
 
 }
 
-.listHeader {
+.title-block-color-1,
+.title-block-color-2 {
+   position: absolute;
+   width: 70%;
+   height: 80%;
+}
+
+.title-block-color-1 {
+   top: -10px;
+   right: -30px;
+   z-index: 2;
+   background-color: var(--deep-pink);
+}
+
+.title-block-color-2 {
+   position: absolute;
+   width: 70%;
+   height: 80%;
+   bottom: -10px;
+   left: -30px;
+   z-index: 1;
    background-color: var(--pink);
+}
+
+.title-description-home {
+   margin: 0;
+}
+
+.description-text h1 {
+   position: relative;
+   z-index: 2;
+   font-size: 50px !important;
+   letter-spacing: 2px;
+}
+
+.description-text h2 {
+   text-decoration: underline;
+   text-decoration-thickness: 3px;
+   text-decoration-color: var(--deep-pink);
+   text-decoration-style: wavy;
+}
+
+.list-header {
+
+   color: var(--light-black);
    height: 60px;
    width: 100%;
-   padding: 120px 0px 20px 0px;
+   padding: 80px 0px 20px 0px;
    position: relative;
    z-index: 20;
    display: flex;
@@ -51,16 +103,14 @@
    box-shadow: 2px 2px 10px rgba(65, 65, 65, 0.767);
 }
 
-.itemHeader {
-   font-size: 14px;
-   font-weight: 600;
+.item-header {
+   font-weight: 500;
+   letter-spacing: 1px;
    cursor: pointer;
-   color: black;
-   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.382);
    text-align: center;
 }
 
-.headerContent {
+.header-content {
    position: relative;
    z-index: 10;
    margin-top: 50px;
@@ -69,48 +119,28 @@
 
 }
 
-.itemHeader {
+.item-header {
    display: flex;
 }
 
-.titleHome {
-   text-align: left;
-   font-family: "Anton", sans-serif;
-   font-weight: 900;
-   font-style: normal;
-   font-size: 50px !important;
-
-}
-
-.descriptionMain {
+.description-main {
    padding-top: 50px;
    padding-bottom: 10vh;
    margin-bottom: 50px;
 }
 
-.descriptionText {
+.description-text {
    position: relative;
    margin: auto;
    border-radius: 10px;
    box-sizing: border-box;
    text-align: left !important;
-   width: 80%;
+   width: 70vw;
    min-height: 65vh;
    margin-top: 50px;
    padding: 30px;
    padding-top: 80px;
-   box-shadow: 10PX 10PX 10PX var(--rose);
-   background: var(--pink);
 
-
-}
-
-.descriptionText h1 {
-   position: absolute;
-   top: -35px;
-   left: -20px;
-   font-size: 50px !important;
-   letter-spacing: 2px;
 }
 
 .coursesSectionHome h1 {
@@ -118,124 +148,38 @@
    margin-bottom: 30px;
 }
 
-.coursesSectionHome h2 {
+.coursesSection-home h2 {
    padding: 0px 0px 10px 30px;
 
 }
 
-.coursesSectionHomeContent {
+.courses-section-homeContent {
    position: relative;
    min-height: 60vh;
    color: antiquewhite;
 }
 
-.coursesSectionHomeContent img {
+.courses-section-homeContent img {
    position: absolute;
    width: 100%;
    height: 100%;
 }
 
-.coursesSectionHomeContent h2 {
+.courses-sectionHome-content h2 {
    position: relative;
    z-index: 2;
 }
 
-.coursesSectionHomeContent button {
+.courses-section-home-content button {
    position: absolute;
    z-index: 2;
 }
 
-.coursesSectionHomeContent button {
+.courses-section-home-content button {
    bottom: 10px;
    width: 100%;
    height: 50px;
 }
 
 
-@media screen and (min-width: 760px) {
-
-
-   .headerHome {
-      margin-bottom: 30px;
-   }
-
-   .headerImg {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-   }
-
-   .listHeader {
-      height: 80px;
-      padding: 120px 0px 30px 0px;
-      padding-left: 0;
-      position: relative;
-      z-index: 20;
-      display: flex;
-      justify-content: center;
-      list-style-type: none;
-      gap: 100px;
-      list-style: none;
-   }
-
-   .itemHeader {
-      font-size: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      color: black;
-      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.382);
-      text-align: center;
-   }
-
-   .headerContent {
-      position: relative;
-      z-index: 10;
-      margin-top: 30px;
-   }
-
-
-   .itemHeader {
-      display: flex;
-   }
-
-   .titleHome {
-      text-align: left;
-      font-size: 100px !important;
-   }
-
-   .descriptionText {
-      position: relative;
-      margin: auto;
-      margin-top: 40px;
-      box-sizing: border-box;
-      text-align: left !important;
-      width: 80%;
-      height: 80vh;
-      padding: 30px;
-      padding-top: 70px;
-   }
-
-   .descriptionText h1 {
-      position: absolute;
-      top: -60px;
-      left: -60px;
-      font-size: 80px !important;
-      letter-spacing: 5px;
-   }
-
-   .descriptionText p {
-      margin-top: 50px;
-      width: 60%;
-      font-size: 24px;
-
-   }
-
-
-
-
-
-
-
-}
+@media screen and (min-width: 760px) {}

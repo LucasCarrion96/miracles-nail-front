@@ -63,36 +63,40 @@ export const ModalTurns = ({
     };
 
     return (
-        <div onClick={() => handleDateChange(day)}>
+        <div onClick={() => handleDateChange(day)} className='calendar-day'>
             <DateSelector {...{ day, isFullDay, isSunday, isPastDate, fullDaysLoading, onClick: () => { handleDateChange(day); handleModal('open'); } }} />
             {isMounted && (
                 <>
-                    <div className={`fadeModal ${isVisible ? 'visible' : ''}`} />
-                    <div className={`modalTurn ${isVisible ? 'visible' : ''}`}>
-                        <ModalHeader onClose={() => handleModal('close')} />
-                        <FormModal
-                            selectedDate={selectedDate}
-                            handleSubmit={handleSubmit}
-                            services={services}
-                            setSelects={setSelects}
-                            selects={selects}
-                            state={state}
-                            dispatch={dispatch}
-                            isLoading={isLoading}
-                            isSaturday={isSaturday}
-                            unavailableTimes={unavailableTimesState}
-                        />
-                        {alertVisible && (
-                            <CustomAlert
-                                message={alertMessage}
-                                visible={alertVisible}
-                                onClose={hideAlert}
-                                onConfirm={onConfirm}
-                                onSignNow={onSignNow}
-                                showConfirmButton={showConfirmButton}
-                                showSignNowButton={showSignNowButton}
+                    <div className={`fade-modal ${isVisible ? 'visible' : ''}`} />
+                    <div className={`modal-turn bg-light-black ${isVisible ? 'visible' : ''}`}>
+                        <div className='boreder-radius-20'>
+                            <ModalHeader
+                                onClose={() => handleModal('close')}
+                                selectedDate={selectedDate}
                             />
-                        )}
+                            <FormModal
+                                handleSubmit={handleSubmit}
+                                services={services}
+                                setSelects={setSelects}
+                                selects={selects}
+                                state={state}
+                                dispatch={dispatch}
+                                isLoading={isLoading}
+                                isSaturday={isSaturday}
+                                unavailableTimes={unavailableTimesState}
+                            />
+                            {alertVisible && (
+                                <CustomAlert
+                                    message={alertMessage}
+                                    visible={alertVisible}
+                                    onClose={hideAlert}
+                                    onConfirm={onConfirm}
+                                    onSignNow={onSignNow}
+                                    showConfirmButton={showConfirmButton}
+                                    showSignNowButton={showSignNowButton}
+                                />
+                            )}
+                        </div>
                     </div>
                 </>
             )}

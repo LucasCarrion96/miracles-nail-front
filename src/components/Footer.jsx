@@ -3,7 +3,7 @@ import "../styles/footer.css"
 export const Footer = () => {
     return (
         <>
-            <div className="footer">
+            <div className="footer bg-pink">
 
                 <div className="footerLogo">
                     <h1 className="titlePrincipal">Arte, Moños y Gatos</h1>

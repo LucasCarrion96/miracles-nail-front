@@ -1,12 +1,12 @@
 export const useConfirmData = (user, showAlert, apiUrl, selects, selectedDate, state) => {
-    const confirmData = async () => {
+    const confirmData = async (totalPrice) => {
         try {
             const requestBody = {
                 idService: selects.service,
                 idServiceAdd: selects.radioService,
                 horario: selects.horario,
                 turnDay: selectedDate, // Asegúrate de que la fecha esté bien formateada
-                totalPrice: 200, // Verifica que se calcule correctamente
+                totalPrice: totalPrice, // Verifica que se calcule correctamente
                 nailArtCount: state.nailArtCount,
                 threeDCount: state.threeDCount,
                 caricatureCount: state.caricatureCount,

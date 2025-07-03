@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-
+import { CustomSelect } from '../../../components/form/CustomSelect';
 const ScheduleSelector = ({ isSaturday, horario, handleChange, unavailableTimes = [], isLoading }) => {
 
 
@@ -17,28 +17,31 @@ const ScheduleSelector = ({ isSaturday, horario, handleChange, unavailableTimes 
 
     const timesToRender = isSaturday ? saturdayAvailableTimes : availableTimes;
 
+    const options = timesToRender.map(({ id, label }) => ({
+        value: id,
+        label: label,
+        isDisabled: Array.isArray(unavailableTimes) && unavailableTimes.includes(id),
+    }));
+    console.log("horariooptions", options);
+
     return (
         <>
-            <h2>Horarios:</h2>
-            <select
-                name="horario"
-                value={horario}
-                className="form-select overflow-auto"
-                onChange={handleChange}
-                disabled={isLoading}
-            >
-                <option value="" disabled>Selecciona un horario</option>
-                {timesToRender.map(({ id, label }) => (
-                    <option
-                        key={id}
-                        value={id}
-                        disabled={Array.isArray(unavailableTimes) && unavailableTimes.includes(id)}
-                    >
-                        {label}
-                    </option>
-                ))}
-            </select>
-            {isLoading && <p>Cargando horarios...</p>}
+            <div className='schedule-selector'>
+                <h2 className='subtitle'>Horarios:</h2>
+                <CustomSelect
+                    name="horario"
+                    options={options}
+                    value={horario}
+                    onChange={(selected) =>
+                        handleChange({ target: { name: "horario", value: selected?.value } })
+                    }
+                    placeholder="Selecciona un Horario"
+                    isLoading={isLoading}
+                    isDisabled={isLoading}
+                    loadingMessage={() => "Cargando horarios..."}
+                />
+                {isLoading && <p>Cargando horarios...</p>}
+            </div>
         </>
     );
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import { ModalTurns } from './ModalTurns';
 import { useCalendar } from './hooksTurns/useCalendar';
 import { CalendarHeader } from './takeTurnComponents/CalendarHeader';
+import { motion, AnimatePresence } from 'framer-motion';
 import "../../styles/turnPage.css";
 export const TakeTurnPage = () => {
 
@@ -25,12 +26,28 @@ export const TakeTurnPage = () => {
     today.setHours(0, 0, 0, 0);
     return (
         <>
-            <div
-                className={` ${fullDaysLoading ? 'showSpiner' : 'hiddenSpiner'}`}
-            >
-                <h1>Cargando!!!</h1>
-            </div>
-            <div className="turnBody">
+            <AnimatePresence>
+                {fullDaysLoading && (
+                    <motion.div
+                        className="spinner-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <motion.h1
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0.8 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            Cargando!!!
+                        </motion.h1>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <div className="turn-body">
                 <CalendarHeader
                     month={month}
                     year={year}
@@ -40,7 +57,7 @@ export const TakeTurnPage = () => {
                 />
                 <main>
                     <div className="calendar-container">
-                        <div className="calendar-body week">
+                        <div className="calendar-body week bg-gray-pearl">
                             {['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'].map((day, index) => (
                                 <h1 key={index} className="calendar-week">{day}</h1>
                             ))}

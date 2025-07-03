@@ -2,12 +2,13 @@
 
 export const CalendarHeader = ({ month, year, months, handlePrevMonth, handleNextMonth }) => {
     return (
-        <header className="turnHeader">
-            <h1 className="turnTitle">TURNOS</h1>
-            <h1 className="dateText">{months[month - 1]} {year}</h1>
-            <div className="buttonDate">
-                <button className="datePrev" onClick={handlePrevMonth}>-</button>
-                <button className="dateProx monthDate" onClick={handleNextMonth}>+</button>
+        <header className="turn-header bg-pink">
+            <h1 className="turn-title">TURNOS</h1>
+
+            <div className="button-date">
+                <button className="bg-light-black date-prev" onClick={handlePrevMonth}>-</button>
+                <h1 className="date-text">{months[month - 1]} {year}</h1>
+                <button className="bg-light-black date-prox month-date" onClick={handleNextMonth}>+</button>
             </div>
         </header>
     );

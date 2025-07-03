@@ -34,20 +34,20 @@ export const AdminUsersTable = () => {
         <>
             <div className='headerTable'>
                 <div>
-                    <h2>Usuarios</h2>
+                    <h2 className='title'>Usuarios</h2>
                 </div>
                 <div>
-                    <h3>Buscar Usuario</h3>
+
                     <div className="formTable">
                         <div className="form-floating mb-3">
+                            <label htmlFor="floatingInput">Buscar Usuario:</label>
                             <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-                            <label htmlFor="floatingInput">Usuario</label>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='tableBody'>
-                <table className="table table-hover">
+            <div className='dashboard-table'>
+                <table className="table-custom">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -69,12 +69,12 @@ export const AdminUsersTable = () => {
                                 <td>{user.mail}</td>
                                 <td>{user.phone}</td>
                                 <td>
-                                    <button onClick={() => handleSelectItem(user)}>
+                                    <button className='btn' onClick={() => handleSelectItem(user)}>
                                         Cursos
                                     </button>
                                 </td>
                                 <td>{user.active === 1 ? 'Sí' : 'No'}</td>
-                                <td><button>Eliminar</button></td>
+                                <td><button className='btn btn-danger'>Eliminar</button></td>
                             </tr>
                         ))}
                     </tbody>

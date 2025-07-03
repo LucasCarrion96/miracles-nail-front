@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { PawPrint } from 'lucide-react';
 
 export const DateSelector = ({ day, isSunday, isPastDate, isFullDay, onClick, fullDaysLoading }) => {
     // Deshabilitar todos los días si la carga está en progreso
@@ -8,12 +8,17 @@ export const DateSelector = ({ day, isSunday, isPastDate, isFullDay, onClick, fu
     return (
         <>
             <button
-                className={`calendar-day numberDay ${isDisabled ? 'sunday' : ''}`}
+                className={`number-day ${isDisabled ? 'sunday' : ''}`}
                 disabled={isDisabled}
                 onClick={onClick}
             >
-                {fullDaysLoading ? 'carga' : day}
+                {isDisabled ?
+                    <PawPrint
+                        size={30}
+                        color='pink'
+                    /> : day}
             </button>
+
         </>
     );
 };

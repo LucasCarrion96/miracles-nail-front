@@ -49,27 +49,29 @@ export const AdminArtTypeTable = () => {
     return (
         <>
             <div>
-                <h2>Diseños</h2>
-                <table className="turnTable table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Modificar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map(artType => (
-                            <tr key={artType.idArtType}>
-                                <th scope="row">{artType.idArtType}</th>
-                                <td>{artType.artTypeName}</td>
-                                <td>{artType.price}</td>
-                                <td><button onClick={() => openModal(artType)}>Editar</button></td>
+                <h2 className="title">Diseños</h2>
+                <div className='dashboard-table'>
+                    <table className="table-custom">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Modificar</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {data.map(artType => (
+                                <tr key={artType.idArtType}>
+                                    <th scope="row">{artType.idArtType}</th>
+                                    <td>{artType.artTypeName}</td>
+                                    <td>{artType.price}</td>
+                                    <td><button className="btn" onClick={() => openModal(artType)}>Editar</button></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <ModalModifyTables
                 isOpen={isOpen}

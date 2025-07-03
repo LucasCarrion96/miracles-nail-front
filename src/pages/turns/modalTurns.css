@@ -1,5 +1,5 @@
 /* Estilos para el fondo del modal */
-.fadeModal {
+.fade-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,51 +11,96 @@
     z-index: 100;
 }
 
-.fadeModal.visible {
+.fade-modal.visible {
     opacity: 1;
 }
 
 /* Modal */
-.modalTurn {
-    position: fixed;
+.modal-turn {
+    position: absolute;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
     top: 50%;
     left: 50%;
+    padding: 10px;
     transform: translate(-50%, -50%);
-    background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 800px;
     max-width: 90%;
+    min-height: 90vh;
     opacity: 0;
     transition: opacity .6s ease;
-    z-index: 1070;
+    z-index: 101;
     pointer-events: none;
 
+
 }
 
-.modalTurn.visible {
+.modal-turn.visible {
     opacity: 1;
     pointer-events: auto;
+
 }
 
-.modalTurnHeader {
+.modal-turn-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
     padding: 16px;
     border-bottom: 1px solid #000000;
-    display: flex;
-    justify-content: flex-end;
 }
 
-.modalTurnBody {
+.modal-turn-header>h1 {
+    font-size: 24px;
+    margin-left: 0;
+
+}
+
+.modal-turn-body {
+    color: var(--light-black);
     padding: 16px;
+    border-radius: 10px;
 }
 
-.countersModal {
+
+.selects-modal {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    font-size: 16px;
+    color: var(--black);
+}
+
+.schedule-selector .service-selector {
+    flex: 1 1 45%;
+}
+
+.aditional-services {
+    flex: 0 0 100%;
+}
+
+/* COUNRTERS */
+.counters-modal-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.counters-modal-title>h2 {
+    margin: 10px 0px 0px 0px;
+}
+
+.counters-modal {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 20px;
 }
 
-.counterBodyModal {
+.counter-body-modal {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,11 +109,27 @@
     height: 100%;
 }
 
-.counterButtonsModal {
+.counter-body-modal>h2 {
+    margin: 0;
+}
+
+.counter-buttons-modal {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
     gap: 10px;
+}
+
+.btn-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    padding: 15px;
+
+    cursor: pointer;
 }
 
 .btn-close {
@@ -79,18 +140,61 @@
     color: #000 !important;
 }
 
-button[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+.radios-check {
+    display: flex;
+    gap: 1rem;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+.custom-radio input[type="radio"] {
+    display: none;
+}
 
+.custom-radio label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.radio-dot {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--pink);
+    border-radius: 50%;
+    position: relative;
+}
+
+.radio-dot::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: var(--light-black);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: scale(0) translate(-50%, -50%);
+    transition: transform 0.2s ease;
+}
+
+.custom-radio input[type="radio"]:checked+label .radio-dot::after {
+    transform: scale(1) translate(-50%, -50%);
+}
+
+select.form-select:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.185);
+}
+
+.submit-modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.submit-modal {
+    border-radius: 20px;
 }

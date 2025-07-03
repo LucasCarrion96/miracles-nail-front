@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { X } from "lucide-react";
 import "../componentsDashboard/modalModifyTables.css";
+
 
 export const ModalModifyTables = ({ isOpen, onClose, onSave, fields, fieldsConfig, data }) => {
     const [editedData, setEditedData] = useState({});
@@ -39,30 +41,37 @@ export const ModalModifyTables = ({ isOpen, onClose, onSave, fields, fieldsConfi
 
     return (
         <div className="modal">
-            <div className="modal-content">
-                <button onClick={onClose}>Cerrar</button>
+            <div className="modalModifyContent bg-pink">
+                <div className="close-modal">
+                    <X
+                        size={18}
+                        onClick={onClose} />
+                </div>
 
-                {fields.map((field) => {
-                    // Verifica si el campo está presente en los datos
-                    if (!(field in data)) return null;
+                <div className="modalBody ">
+                    {fields.map((field) => {
+                        if (!(field in data)) return null;
 
-                    // Encuentra la configuración del campo basado en el nombre
-                    const fieldConfig = fieldsConfig.find(config => config.field === field);
-                    const fieldType = fieldConfig ? fieldConfig.type : "text";
+                        const fieldConfig = fieldsConfig.find(config => config.field === field);
+                        const fieldType = fieldConfig ? fieldConfig.type : "text";
 
-                    return (
-                        <div key={field}>
-                            <label>{field}</label>
-                            <input
-                                type={fieldType}  // Usa el tipo definido en fieldsConfig
-                                value={editedData[field] || ""}
-                                onChange={(e) => handleChange(field, e.target.value)}
-                            />
-                        </div>
-                    );
-                })}
-                {error && <div className="error">{error}</div>}
-                <button onClick={handleSave}>Guardar</button>
+                        return (
+                            <div className="formGroup" key={field}>
+                                <label>{field}</label>
+                                <input
+                                    type={fieldType}
+                                    value={editedData[field] || ""}
+                                    onChange={(e) => handleChange(field, e.target.value)}
+                                />
+                            </div>
+                        );
+                    })}
+                    {error && <div className="error">{error}</div>}
+                </div>
+
+                <div className="modalFooter">
+                    <button onClick={handleSave}>Guardar</button>
+                </div>
             </div>
         </div>
     );
