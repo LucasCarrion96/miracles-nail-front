@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { useCheckSession } from "../hooks/useCheckSession";
+import { useCheckSession } from '@api';
 
 export const PublicRoutes = ({ children }) => {
     const { isLoggedIn, isChecking, checkSession } = useCheckSession();

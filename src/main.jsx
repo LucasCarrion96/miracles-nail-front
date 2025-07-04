@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { MiraclesApp } from './MiraclesApp';
-import { NavBar } from "./components/NavBar";
+import { NavBar } from '@components/layout';
 import { BrowserRouter } from 'react-router-dom';
 import { LangProvider } from "./context/contextLang/LangProvider";
 import { AuthProvider } from './context/AuthContext';

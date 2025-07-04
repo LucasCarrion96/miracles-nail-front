@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { useCheckSession } from "../hooks/useCheckSession";
+import { useCheckSession } from '@api';
 import axios from "axios";
 
 export const AuthContext = createContext();

@@ -1,16 +1,16 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import { HomePage } from "../pages/home/HomePage";
-import { CoursesPage } from "../pages/courses/CoursesPage";
-import { TakeTurnPage } from "../pages/turns/TakeTurnPage";
-import { LoginPage } from "../pages/login/LoginPage";
+import { CoursesPage } from "../feature/services/courses/CoursesPage";
+import { TakeTurnPage } from "../feature/services/turns/TakeTurnPage";
+import { LoginPage } from "../feature/auth/LoginPage";
 import { AboutPage } from "../pages/AboutPage";
-import { UserPage } from "../pages/userProfile/UserPage";
-import { UserConfig } from "../pages/userProfile/UserConfig";
-import { DashboardPage } from "../pages/dashboard/DashboardPage";
-import { CreateAccount } from "../pages/login/createAccount/CreateAccount";
-import { RecoverPassword } from "../pages/login/recoveryAccount/RecoverPassword";
-import { PaymentDeposit } from "../pages/turns/PaymentDeposit"
+import { UserPage } from "../feature/user/userProfile/UserPage";
+import { UserConfig } from "../feature/user/userProfile/UserConfig";
+import { DashboardPage } from "../feature/user/dashboard/DashboardPage";
+import { CreateAccount } from "../feature/auth/createAccount/CreateAccount";
+import { RecoverPassword } from "../feature/auth/recoveryAccount/RecoverPassword";
+import { PaymentDeposit } from "../feature/services/turns/PaymentDeposit"
 import { PublicRoutes } from "./PublicRoutes";
 import { PrivateRoutes } from "./PrivateRoutes";
 

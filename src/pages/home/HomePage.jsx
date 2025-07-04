@@ -1,8 +1,9 @@
 import { useContext, useRef } from "react"
-import { Footer } from "../../components/Footer"
+import { Footer } from "../../components/layout/Footer"
 import { LangContext } from "../../context/contextLang/LangContext"
-import { GalleryHome } from "./componentsHome/gallery/GalleryHome";
+import { GalleryHome } from "./componentsHome/gallery/GalleryHome"
 import { CollageWorks } from "./componentsHome/collage/CollageWorks"
+import { SeeMoreButton } from '@components/form/button'
 import "../../styles/homePage.css"
 
 
@@ -44,7 +45,7 @@ export const HomePage = () => {
                         <p className="text-home content-text">
                             Una sueño que se puede hacer realidad <br />
                             No esperes mas y tansforma tus manos</p>
-                        <button className="btn-see-more input-text">Registrarse</button>
+                        <SeeMoreButton />
                     </div>
 
                 </header>
@@ -72,11 +73,11 @@ export const HomePage = () => {
                     <section className="collageWorks">
                         <CollageWorks />
                     </section>
-                    { /* <section className="coursesSectionHome" ref={coursesRef}>
+                    <section className="coursesSectionHome" ref={coursesRef}>
 
                         <h1 className="titlePrincipal">Cursos</h1>
 
-                         <div className="coursesSectionHomeContent">
+                        <div className="coursesSectionHomeContent">
                             <img src="src/assets/uñas.png" alt="" />
                             <h2 className="subtitle">Despierta tus talentos</h2>
                             <h2>Aprende todo sobre las uñas,<br />
@@ -85,9 +86,9 @@ export const HomePage = () => {
                             <button>Que Esperas Aprovecha Los mejores precios</button>
 
                         </div>
-                      
-                        
-                    </section>*/}
+
+
+                    </section>
 
                     <section className="review" ref={reviewRef}>
                         <h1 className="title">Reseñas</h1>
