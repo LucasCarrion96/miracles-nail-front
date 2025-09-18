@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const response = await fetch(`${apiUrl}/session/login`, {
+            const response = await fetch(`${apiUrl}/auth/session/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ mail: email, password }),
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            await axios.post(`${apiUrl}/session/logout`, {}, { withCredentials: true });
+            await axios.post(`${apiUrl}/auth/session/logout`, {}, { withCredentials: true });
             setIsLoggedIn(false);
             setUser(null);
         } catch (error) {

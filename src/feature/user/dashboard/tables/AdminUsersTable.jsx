@@ -4,10 +4,11 @@ import { usePaginationFetchData } from '@api';
 import { ModalOnlyText } from '../componentsDashboard/ModalOnlyText';
 import { useDataMapper } from '../../../../hooks/hooksTables/useDataMapper';
 import { useSelectableItem } from '../../../../hooks/hooksTables/useSelectableItem ';
+import { IconButton } from '@components/button/icon-button/IconButton';
 
 export const AdminUsersTable = () => {
     //api
-    const apiUrl = `${import.meta.env.VITE_API_URL}/users`;
+    const apiUrl = `${import.meta.env.VITE_API_URL}/users/get-users`;
     // Usamos el hook de paginación con los parámetros correspondientes
     // Mapper para transformar la respuesta en el formato esperado por el hook
     const dataMapper = useDataMapper('users')
@@ -68,12 +69,23 @@ export const AdminUsersTable = () => {
                                 <td>{user.mail}</td>
                                 <td>{user.phone}</td>
                                 <td>
-                                    <button className='btn' onClick={() => handleSelectItem(user)}>
-                                        Cursos
-                                    </button>
+                                    <IconButton
+                                        handleClick={() => handleSelectItem(user)}
+                                        icon="BookOpen"
+                                        color="white"
+                                        btnClass="btn btn-black"
+                                        size={20}
+                                    />
                                 </td>
-                                <td>{user.active === 1 ? 'Sí' : 'No'}</td>
-                                <td><button className='btn btn-danger'>Eliminar</button></td>
+                                <td>{user.active ? 'activo' : 'inactivo'}</td>
+                                <td>
+                                    <IconButton
+                                        icon="Trash"
+                                        color="white"
+                                        btnClass="btn btn-danger"
+                                        size={20}
+                                    />
+                                </td>
                             </tr>
                         ))}
                     </tbody>

@@ -4,10 +4,12 @@ import './form-style.css';
 const customStyles = {
     control: (base) => ({
         ...base,
-        backgroundColor: '#F6C1D9',
-        borderColor: '#2B2B2B',
-        boxShadow: '0px 5px 5px 5px rgba(0, 0, 0, 0.329)',
-        '&:hover': { borderColor: '#2B2B2B' },
+        backgroundColor: '#ffffffff',
+        borderColor: '#ffffffff',
+        borderRadius: '10px',
+        height: '45px',
+        boxShadow: '0px 0px 0px 0px rgba(0, 0, 0, 0.329)',
+        '&:hover': { borderColor: '#ffffffff' },
     }),
     option: (base, state) => ({
         ...base,
@@ -48,6 +50,8 @@ export const CustomSelect = ({ options, value, onChange, placeholder = "Seleccio
             isSearchable={false}
             placeholder={placeholder}
             className="custom-select"
+            menuPosition="fixed"       // fuerza que el menú sea fijo sobre la página
+            menuPlacement="auto"
         />
     );
 }

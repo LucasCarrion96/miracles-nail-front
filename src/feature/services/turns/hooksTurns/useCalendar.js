@@ -12,7 +12,7 @@ export const useCalendar = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
 
     const { data: fullDaysData, loading: fullDaysRequestLoading } = useFetchData(
-        `${apiUrl}/schedules/full-days/${year}/${formattedMonth}`
+        `${apiUrl}/catalog/schedules/full-days/${year}/${formattedMonth}`
     );
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export const useCalendar = () => {
     const reloadFullDays = async () => {
         setFullDaysLoading(true);
         try {
-            const response = await fetch(`${apiUrl}/schedules/full-days/${year}/${formattedMonth}`);
+            const response = await fetch(`${apiUrl}/catalog/schedules/full-days/${year}/${formattedMonth}`);
             const data = await response.json();
             setFullDays(data);
         } catch (error) {

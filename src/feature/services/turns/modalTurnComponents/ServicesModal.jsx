@@ -1,14 +1,20 @@
-
-import { CustomSelect } from '../../../../components/form/select/CustomSelect'
+import { CustomSelect } from "@components/select";
 export const ServicesModal = ({ selects, services, handleChange }) => {
     if (!Array.isArray(services)) {
         return <p>Error: Los servicios no están disponibles</p>;
     }
     const options = services
-        .filter(service => !['Service', 'Nada'].includes(service.nameService) && ![12, 13].includes(service.idService))
+        .filter(service => !['Service', 'Nada'].includes(service.nameService) && ![15, 16].includes(service.idService))
         .map(service => ({
             value: service.idService,
-            label: `${service.nameService} - $${service.price}`
+            label: (
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    <span className="content-text">{service.nameService}</span>
+                    <span className="small-text">
+                        ${service.price}
+                    </span>
+                </div>
+            )
         }));
 
     return (
@@ -29,7 +35,7 @@ export const ServicesModal = ({ selects, services, handleChange }) => {
                 <h2 className='subtitle'>Servicio Adicional:</h2>
                 <div className='radios-check'>
                     {services
-                        .filter(service => [12, 13].includes(service.idService))
+                        .filter(service => [15, 16].includes(service.idService))
                         .map(service => (
                             <div className="custom-radio " key={service.idService}>
                                 <input

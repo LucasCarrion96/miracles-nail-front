@@ -1,23 +1,24 @@
+/*GRID*/
 .create-account-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
     margin: auto;
     margin-top: 100px;
-    width: 80vw;
-    max-width: 600px;
-    max-height: auto;
-    min-height: 300px;
+    width: 80%;
+    min-width: 500px;
+    max-width: 1080px;
+    height: 420px;
     padding: 15px;
     border-radius: 10px;
     box-sizing: border-box;
 }
 
-
 .create-account-content {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+    display: grid;
+    grid-template-rows: 1fr 80px;
 }
 
 .create-account-title>h1 {
@@ -25,26 +26,51 @@
 }
 
 .animated-step {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: start;
+    align-items: stretch;
+}
+
+.animated-step>div {
+    width: 100%;
 }
 
 .animated-step>div>div {
     width: 100%;
 }
 
-.footer-form {
+.create-account-form {
+    grid-row: 1;
+    height: 100% !important;
+}
 
-    background-color: red;
+.create-account-form>div {
+    height: 100% !important;
+}
+
+.footer-form {
+    position: relative;
+    grid-row: 2;
     width: 100%;
-    height: auto;
+    height: 100%;
     bottom: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: start;
     align-items: end;
+}
+
+/*FOOTER/NAVIGATION*/
+
+.footer-content {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 0.5rem;
 }
 
 .buttonContainer {
@@ -63,15 +89,83 @@
     flex: 0 0 100%;
 }
 
-.react-datepicker-popper {
-    z-index: 10 !important;
+
+/*FORM STYLES*/
+
+.password-check {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-
-
+.password-check button {
+    margin: 0;
+}
 
 .custom-date-label,
 .custom-date-icon {
     pointer-events: none !important;
     /* permite que el click pase al botón */
+}
+
+
+
+.date-picker-container>.input-form,
+.date-picker-container>.custom-select {
+    width: 25% !important;
+    margin: 0 !important;
+
+}
+
+
+
+.other-health-condition>.input-form {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.animated-step {
+    outline: 1px solid magenta;
+}
+
+.user-health-conditions {
+    outline: 1px solid cyan;
+}
+
+.conditions-form {
+    outline: 1px solid orange;
+}
+
+.other-health-condition {
+    outline: 1px solid lime;
+}
+
+@media screen and (max-width: 768px) {
+
+    .create-account-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 1fr;
+        margin: auto;
+        margin-top: 100px;
+        width: 80vw;
+        height: 500px;
+        min-height: 500px;
+        padding: 15px;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+
+    .animated-step {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .animated-step>div>.subtitle {
+        margin-top: 10px;
+    }
 }

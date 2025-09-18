@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* 
 🧷 BASE TYPO ESCALA (Escritorio) en rem (basado en 1rem = 16px)
@@ -24,7 +25,6 @@ Texto general               0.9375rem–1rem  (15–16px)
 Descripciones pequeñas      0.8125rem–0.875rem (13–14px)
 Botones / Inputs            1rem            (16px)
 */
-
 :root {
     --bgTextShadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.329);
     --bgShadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.329);
@@ -40,12 +40,28 @@ Botones / Inputs            1rem            (16px)
 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    -webkit-font-smoothing: antialiased;
+    /* Safari/Chrome en macOS: suaviza con escala de grises */
+    -moz-osx-font-smoothing: grayscale;
+    /* Firefox en macOS */
+    text-rendering: optimizeLegibility;
+    /* mejoras tipográficas en muchos navegadores */
+    -webkit-text-size-adjust: 100%;
+}
+
+
 body {
     padding: 0;
     margin: 0 auto;
     box-sizing: border-box;
     background: var(--white-bone);
-    font-family: "Poppins", sans-serif;
+    font-family: "PT Sans", sans-serif;
     font-style: normal;
     font-weight: 400;
     width: 100%;
@@ -97,7 +113,7 @@ body {
     border-radius: 20px;
 }
 
-.btnPink {
+.btn-pink {
     background: var(--pink) !important;
     color: black !important;
     text-shadow: var(--bgTextShadow) !important;
@@ -108,12 +124,28 @@ body {
     color: var(--white-bone) !important;
 }
 
+.btn-black {
+    background: var(--light-black) !important;
+    color: var(--white-bone) !important;
+}
+
+.btn-no-bg {
+    border: none !important;
+    padding: 0 !important;
+    background: rgba(0, 0, 0, 0) !important;
+}
+
 .bg-success {
     background: var(--success) !important;
     color: var(--white-bone) !important;
 }
 
 /* Typography (rem scale based on 1rem = 16px) */
+/* -------------------- */
+/*  Tipografía minimal  */
+/* -------------------- */
+
+/* Título principal (marca / logo) */
 .title-principal {
     font-family: "Fascinate", system-ui;
     font-size: 3.75rem;
@@ -123,58 +155,80 @@ body {
     letter-spacing: 0.1rem;
 }
 
+/* Títulos grandes */
 .title {
-    font-family: "Playfair Display", serif;
+    font-family: "PT Sans",
+        sans-serif;
     font-size: 3rem;
     /* 48px */
-    font-weight: 500;
+    font-weight: 1000;
     line-height: 1.2;
 }
 
+/* Subtítulos */
 .subtitle {
-    font-size: 2rem;
-    /* 32px */
-    font-weight: 400;
-    font-family: "Playfair Display", serif;
+    font-family: "PT Sans",
+        sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
     line-height: 1.3;
 }
 
+/* Texto de párrafos */
 .content-text {
+    font-family: "PT Sans",
+        sans-serif;
     font-size: 1.125rem;
-    /* 18px */
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
+    font-weight: 700;
     line-height: 1.6;
+    letter-spacing: 0.02rem;
+    color: var(--black);
 }
 
+/* Texto pequeño */
 .small-text {
+    font-family: "PT Sans",
+        sans-serif;
     font-size: 0.875rem;
     /* 14px */
-    font-weight: 400;
+    font-weight: 300;
     color: var(--light-black);
     line-height: 1.4;
 }
 
+/* Textos legales */
 .legal-text {
+    font-family: "PT Sans",
+        sans-serif;
     font-size: 0.75rem;
     /* 12px */
-    font-weight: 300;
+    font-weight: 600;
     color: gray;
     line-height: 1.3;
 }
 
+/* Botones */
 .btn-text {
+    font-family: "Poppins", sans-serif;
     font-size: 1rem;
     /* 16px */
     font-weight: 600;
-    font-family: "Poppins", sans-serif;
 }
 
+/* Inputs */
 .input-text {
+    font-family: "Poppins", sans-serif;
     font-size: 1rem;
     /* 16px */
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+h1,
+h2,
+h3 {
+    -webkit-font-smoothing: subpixel-antialiased;
+    /* puede mejorar en pantallas con subpixel */
+    text-rendering: geometricPrecision;
 }
 
 /* Buttons */

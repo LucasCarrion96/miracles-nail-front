@@ -1,15 +1,15 @@
 import React from 'react';
 import * as LucideIcons from 'lucide-react';
 
-export const RefreshButton = ({ variant, handleClick, btnClass, color }) => {
+export const StepButton = ({ variant, handleClick, btnClass, color, size }) => {
 
     const btnClassName = btnClass || "btn-no-bg";
     const iconColor = color || "black";
     let VariantRefresh;
-    if (variant === 1) {
-        VariantRefresh = LucideIcons.RotateCcw;
-    } else if (variant === 2) {
-        VariantRefresh = LucideIcons.RefreshCcw;
+    if (variant === "next") {
+        VariantRefresh = LucideIcons.StepForward;
+    } else if (variant === "back") {
+        VariantRefresh = LucideIcons.StepBack;
     } else {
         console.warn(`Variant ${variant} no soportada para RefreshButton`);
         return null;
@@ -22,11 +22,12 @@ export const RefreshButton = ({ variant, handleClick, btnClass, color }) => {
     return (
         <>
             <button
+                type='button'
                 className={btnClassName}
                 onClick={handleClick}
             >
                 <VariantRefresh
-                    size={24}
+                    size={size || 24}
                     cursor="pointer"
                     color={iconColor}
 

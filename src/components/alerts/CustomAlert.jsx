@@ -1,5 +1,6 @@
 import React from 'react';
 import './CustomAlert.css';
+import { IconButton } from '@components/button/icon-button/IconButton';
 
 export const CustomAlert = ({
     message,
@@ -16,11 +17,10 @@ export const CustomAlert = ({
         <div className="alert boreder-radius-20">
             <div className='alert-header bg-deep-pink'>
                 <h3>ATENCION!</h3>
-                <button
-                    className='btn'
-                    onClick={onClose} aria-label="Cerrar">
-                    Cerrar
-                </button>
+                <IconButton
+                    icon="X"
+                    handleClick={onClose}
+                />
             </div>
             <div className="alert-content bg-gray-pearl">
                 <div dangerouslySetInnerHTML={{ __html: message }} />

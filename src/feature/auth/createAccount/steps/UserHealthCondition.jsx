@@ -1,53 +1,53 @@
 import React from "react";
+import { CustomSelect } from "@components/select";
 
 export const UserHealthCondition = ({ formData, handleChange }) => {
+    const options = [
+        { value: '1', label: 'Nada' },
+        { value: '2', label: 'Otros' },
+        { value: '3', label: 'Onicolisis' },
+        { value: '4', label: 'Alergia a Polimeros' },
+        { value: '5', label: 'Onicofagia' },
+    ];
     return (
-        <div className="userHealthConditions">
-            <h4>Padeces de algún condicionamiento?</h4>
+        <div className="user-health-conditions">
+            <h4 className="subtitle">Afecciones de salud</h4>
+            <div className="conditions-form">
+                <CustomSelect
+                    options={options}
+                    value={options.find(option => option.value === formData.healthCondition) || null}
+                    placeholder="Condicion de salud"
+                    name="nn"
+                    id="nn"
+                    onChange={(selected) =>
+                        handleChange({ target: { name: 'healthCondition', value: selected.value } })
+                    }
+                />
+                {/* Si el usuario selecciona "Otros", mostramos el input adicional */}
+                {formData.healthCondition === "2" && (
+                    <div className="other-health-condition">
+                        <label htmlFor="otherHealthCondition" className="form-label">
+                            Especificar otra condición:
+                        </label>
+                        <input
+                            placeholder="Solo nombre, sin descripción"
+                            type="text"
+                            className="input-form"
+                            name="otherHealthCondition"
+                            id="otherHealthCondition"
+                            value={formData.otherHealthCondition}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                )}
 
-            <div className="mb-3">
-                <label htmlFor="healthCondition" className="form-label">
-                    Alergias Comunes:
-                </label>
-                <select
-                    className="form-select"
-                    name="healthCondition"
-                    id="healthCondition"
-                    value={formData.healthCondition}
-                    onChange={handleChange}
-                >
-                    <option value="">Ver lista de alergias</option>
-                    <option value="1">Otros</option>
-                    <option value="2">Onicolisis</option>
-                    <option value="3">Alergia a polímeros</option>
-                    <option value="4">Onicofagia</option>
-                </select>
+                <p className="small-text">Nota: <br />
+                    Por razones de salud y seguridad, si padeces otra affecion no listada
+                    leer los terminos y condiciones antes de continuar o cominicate con la manicurista.
+                    Sobre salud leer Seccion 3 (Ver terminos y Condiciones)
+                </p>
             </div>
-
-            {/* Si el usuario selecciona "Otros", mostramos el input adicional */}
-            {formData.healthCondition === "1" && (
-                <div className="mb-3">
-                    <label htmlFor="otherHealthCondition" className="form-label">
-                        Especificar otra condición:
-                    </label>
-                    <input
-                        placeholder="Solo un nombre"
-                        type="text"
-                        className="form-control inputText"
-                        name="otherHealthCondition"
-                        id="otherHealthCondition"
-                        value={formData.otherHealthCondition}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-            )}
-            <p>Nota: <br />
-                Por razones de salud y seguridad, el servicio de manicura no podrá realizarse <br />
-                en personas conafecciones fúngicas o condiciones médicas <br />
-                que puedan verse afectadas por el procedimiento.<br />
-                Mas informacion en terminos y condiciones (Ver terminos y Condiciones)
-            </p>
         </div>
     );
 };

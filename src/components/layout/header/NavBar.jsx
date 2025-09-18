@@ -3,6 +3,9 @@ import "./navbarStyle.css";
 import { useContext, useEffect, useState, useRef, memo } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import { Menu, X, CalendarHeart, SquareUserRound, House, NotebookText, ScanHeart } from 'lucide-react';
+import { IconButton } from '@components/button/icon-button/IconButton';
+import { SecondaryButton } from "@components/button/secondary-button/SecondaryButton";
+
 
 const NavBarComponent = () => {
     const { user, logout, setUser, isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
@@ -70,11 +73,13 @@ const NavBarComponent = () => {
             <nav ref={navRef} className={`navbar bg-light-black  ${isVisible ? 'visible' : ''}`}>
                 <div className="container-nav">
                     <NavLink to='/' className="navbar-brand">
-                        <img className="nav-img" src="../src/assets/3.png" alt="Logo" />
-                        <h2>Miracles</h2>
+                        <House
+                            size={30}
+                        />
                     </NavLink>
-
+                    <h2 className="title-principal nav-title">Miracles Nails Studio</h2>
                     <Menu
+                        cursor={"pointer"}
                         size={30}
                         color="var(--pink)"
                         className="nav-icon-button"
@@ -87,11 +92,12 @@ const NavBarComponent = () => {
                 <div className={` offcanvas bg-light-black ${offcanvas ? 'show-canvas' : ''}`}>
                     <div className="canvas-header">
                         <h5 className="offcanvas-title">Menu</h5>
-                        <X
+                        <IconButton
+                            icon="X"
                             color="var(--pink)"
-                            size={20}
+                            size={24}
                             className="nav-icon-button"
-                            onClick={() => handleOffcanvasToggle(false)}
+                            handleClick={() => handleOffcanvasToggle(false)}
                             type="button"
                         />
 
@@ -101,41 +107,56 @@ const NavBarComponent = () => {
                         <ul className="nav-list ">
 
                             <MenuLink to='/' className="nav-link">
-                                <House />
-                                Inicio
+                                <SecondaryButton
+                                    color="var(--pink)"
+                                    icon="House"
+                                    textBtn="Inicio"
+                                />
                             </MenuLink>
 
                             <MenuLink to='/cursos' className="nav-link">
-                                <NotebookText />
-                                Cursos
+                                <SecondaryButton
+                                    color="var(--pink)"
+                                    icon="NotebookText"
+                                    textBtn="Cursos"
+                                />
                             </MenuLink>
 
                             <MenuLink to='/turnos' className="nav-link">
-                                <CalendarHeart />
-                                Turnos
+                                <SecondaryButton
+                                    color="var(--pink)"
+                                    icon="CalendarHeart"
+                                    textBtn="Turnos"
+                                />
                             </MenuLink>
 
                             <MenuLink to='/user' className="nav-link">
-                                <SquareUserRound />
-                                Perfil
+                                <SecondaryButton
+                                    color="var(--pink)"
+                                    icon="SquareUserRound"
+                                    textBtn="Perfil"
+                                />
                             </MenuLink>
 
                             <MenuLink to='/sobremi' className="nav-link">
-                                <ScanHeart />
-                                Sobre Mi
+                                <SecondaryButton
+                                    color="var(--pink)"
+                                    icon="ScanHeart"
+                                    textBtn="Sobre Mi"
+                                />
                             </MenuLink>
                         </ul>
                     </div>
-                    <div>
+                    <div className="canvas-footer">
                         {isLoggedIn ? (
-                            <button onClick={handleLogout} className="bg-red-500 px-4 py-2 rounded">cerrar</button>
+                            <button onClick={handleLogout} className="btn btn-danger btn-text">cerrar</button>
                         ) : (
-                            <button onClick={handleLogin} className="bg-green-500 px-4 py-2 rounded">iniciar</button>
+                            <button onClick={handleLogin} className="btn btn-pink btn-text">iniciar</button>
                         )}
                     </div>
                 </div>
-
             </nav>
+
             <button type="button"
                 onClick={(e) => {
                     e.stopPropagation();
@@ -144,8 +165,7 @@ const NavBarComponent = () => {
                 className={`show-menu bg-light-black ${isVisible ? 'translate-up' : ''}`}>
                 <Menu
                     size={20}
-                    className=""
-
+                    color="var(--pink)"
                 />
             </button >
 

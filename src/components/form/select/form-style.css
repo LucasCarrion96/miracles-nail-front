@@ -3,6 +3,8 @@
     width: 100%;
     height: 45px;
     padding: 0;
+    margin: 0;
+    border-radius: 10px !important;
     box-sizing: border-box;
 }
 
@@ -16,7 +18,7 @@
 .input-form {
     width: 100% !important;
     height: 45px;
-    margin-left: 30px;
+    margin: 0;
     padding: 0 10px;
     box-sizing: border-box;
     border: 0px;
@@ -31,4 +33,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/*----------------------------------------------/*/
+/*input color focus*/
+.input-pink {
+    color: black;
+    background-color: var(--pink);
+}
+
+.input-black {
+    color: var(--white-bone);
+    background-color: var(--light-black);
+}
+
+.input-white {
+    color: black;
+    background-color: var(--white-bone);
+}
+
+.input-gray {
+    color: black;
+    background-color: var(--gray-pearl);
 }

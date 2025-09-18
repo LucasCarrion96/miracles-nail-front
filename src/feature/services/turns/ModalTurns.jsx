@@ -24,7 +24,7 @@ export const ModalTurns = ({
     const apiUrl = import.meta.env.VITE_API_URL;
 
     const { handleSubmit, modalSignalClose, setmodalSignalClose } = useSubmitConfirm(showAlert, hideAlert, apiUrl, selectedDate, services, artTypes, selects, state, reloadFullDays);
-    const { unavailableTimesState, isLoading, refreshData } = useUnavailableTimes(`${apiUrl}/schedules/${year}-${month}-${day}/unavailable-times`, modalSignalClose);
+    const { unavailableTimesState, isLoading, refreshData } = useUnavailableTimes(`${apiUrl}/catalog/schedules/${year}-${month}-${day}/unavailable-times`, modalSignalClose);
 
     const handleModal = (action) => {
         if (action === 'open') {
@@ -67,35 +67,36 @@ export const ModalTurns = ({
             <DateSelector {...{ day, isFullDay, isSunday, isPastDate, fullDaysLoading, onClick: () => { handleDateChange(day); handleModal('open'); } }} />
             {isMounted && (
                 <>
-                    <div className={`fade-modal ${isVisible ? 'visible' : ''}`} />
-                    <div className={`modal-turn bg-light-black ${isVisible ? 'visible' : ''}`}>
-                        <div className='boreder-radius-20'>
-                            <ModalHeader
-                                onClose={() => handleModal('close')}
-                                selectedDate={selectedDate}
-                            />
-                            <FormModal
-                                handleSubmit={handleSubmit}
-                                services={services}
-                                setSelects={setSelects}
-                                selects={selects}
-                                state={state}
-                                dispatch={dispatch}
-                                isLoading={isLoading}
-                                isSaturday={isSaturday}
-                                unavailableTimes={unavailableTimesState}
-                            />
-                            {alertVisible && (
-                                <CustomAlert
-                                    message={alertMessage}
-                                    visible={alertVisible}
-                                    onClose={hideAlert}
-                                    onConfirm={onConfirm}
-                                    onSignNow={onSignNow}
-                                    showConfirmButton={showConfirmButton}
-                                    showSignNowButton={showSignNowButton}
+                    <div className={`fade-modal ${isVisible ? 'visible' : ''}`} >
+                        <div className={`modal-turn bg-light-black ${isVisible ? 'visible' : ''}`}>
+                            <div className='boreder-radius-20'>
+                                <ModalHeader
+                                    onClose={() => handleModal('close')}
+                                    selectedDate={selectedDate}
                                 />
-                            )}
+                                <FormModal
+                                    handleSubmit={handleSubmit}
+                                    services={services}
+                                    setSelects={setSelects}
+                                    selects={selects}
+                                    state={state}
+                                    dispatch={dispatch}
+                                    isLoading={isLoading}
+                                    isSaturday={isSaturday}
+                                    unavailableTimes={unavailableTimesState}
+                                />
+                                {alertVisible && (
+                                    <CustomAlert
+                                        message={alertMessage}
+                                        visible={alertVisible}
+                                        onClose={hideAlert}
+                                        onConfirm={onConfirm}
+                                        onSignNow={onSignNow}
+                                        showConfirmButton={showConfirmButton}
+                                        showSignNowButton={showSignNowButton}
+                                    />
+                                )}
+                            </div>
                         </div>
                     </div>
                 </>

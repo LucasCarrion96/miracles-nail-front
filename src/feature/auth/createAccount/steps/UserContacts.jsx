@@ -4,15 +4,12 @@ export const UserContacts = ({ formData, handleChange }) => {
     return (
         <>
             <div className="userContact">
-                <h4>Medios de Contacto</h4>
-                <div className="mb-3">
-                    <label htmlFor="phone" className="form-label">
-                        Número de Celular
-                    </label>
+                <h4 className='subtitle'>Medios de Contacto</h4>
+                <div className="form-group">
                     <input
-                        placeholder="+54 261 111 1111"
+                        placeholder="Celular +54 **********"
                         type="tel"
-                        className="form-control inputText"
+                        className="input-form inputText"
                         name="phone"
                         id="phone"
                         value={formData.phone}
@@ -22,16 +19,13 @@ export const UserContacts = ({ formData, handleChange }) => {
                 </div>
 
 
-                <div className="mb-3">
-                    <label htmlFor="mail" className="form-label">
-                        Correo Electrónico
-                    </label>
+                <div className="form-group">
                     <input
                         type="email"
-                        className="form-control inputText"
+                        className="input-form inputText"
                         name="mail"
                         id="mail"
-                        placeholder="miraclesnail@gmail.com"
+                        placeholder="Correo Electrónico"
                         value={formData.mail}
                         onChange={handleChange}
                         required
@@ -39,16 +33,13 @@ export const UserContacts = ({ formData, handleChange }) => {
                     />
                 </div>
 
-                <div className="mb-3">
-                    <label htmlFor="confirmMail" className="form-label">
-                        Confirma tu Correo Electrónico
-                    </label>
+                <div className="form-group">
                     <input
                         type="email"
-                        className="form-control inputText"
+                        className="input-form inputText"
                         name="confirmMail"
                         id="confirmMail"
-                        placeholder="miraclesnail@gmail.com"
+                        placeholder="Confirmar Correo Electrónico"
                         value={formData.ConfirmMail}
                         onChange={handleChange}
                         required

@@ -6,7 +6,7 @@ import { LangContext } from "../../../context/contextLang/LangContext";
 
 export const UseCreateAccountForm = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
-    const { mutate } = usePostData("users/register");
+    const { mutate } = usePostData("auth/session/register");
     const { alertVisible, alertMessage, showAlert, hideAlert } = useAlert();
     const navigate = useNavigate();
     const Lang = useContext(LangContext);
@@ -20,13 +20,27 @@ export const UseCreateAccountForm = () => {
         password: "",
         confirmPassword: "",
         birthDate: "",
+        birthDay: "",         // temporal
+        birthMonth: "",       // temporal
+        birthYear: "",        // temporal
         healthConditions: [],
         otherHealthCondition: "",
         showPassword: false,
     });
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        const updatedFormData = { ...formData, [name]: value };
+
+        // Si se completaron día, mes y año, armar fecha
+        const { birthDay, birthMonth, birthYear } = updatedFormData;
+        if (birthDay && birthMonth && birthYear) {
+            const day = birthDay.padStart(2, "0");
+            const month = birthMonth.padStart(2, "0");
+            updatedFormData.birthDate = `${birthYear}-${month}-${day}`; // YYYY-MM-DD
+        }
+
+        setFormData(updatedFormData);
     };
 
     const togglePassword = () => {
@@ -50,6 +64,10 @@ export const UseCreateAccountForm = () => {
             showAlert("El nombre y apellido no pueden tener más de 20 caracteres.");
             return;
         }
+        return true;
+    }
+
+    const validationBirthday = () => {
         //Edad
         if (!formData.birthDate) {
             showAlert("Por favor completá el campo de fecha de nacimiento.");
@@ -104,7 +122,7 @@ export const UseCreateAccountForm = () => {
             return;
         }
         const emailCheckResponse = await fetch(
-            `${apiUrl}/users/check-email?email=${encodeURIComponent(formData.mail)}`
+            `${apiUrl}/auth/session/check-email?email=${encodeURIComponent(formData.mail)}`
         );
         const emailCheckData = await emailCheckResponse.json();
 
@@ -124,13 +142,14 @@ export const UseCreateAccountForm = () => {
         }
         if (formData.password !== formData.confirmPassword) {
             showAlert("Las contraseñas no coinciden.");
-            return;
+            return
         }
-
+        return true;
     }
 
     const validation = {
         validationDetails,
+        validationBirthday,
         validationContacts,
         validationPassword,
     }

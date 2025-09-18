@@ -5,8 +5,8 @@ import { useModalEdit } from '../../../../hooks/hooksTables/useModalEdit';
 
 export const AdminServiceTable = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
-    const apiUrlEndpoint = `${apiUrl}/services`;
-    const apiUrlSave = `${apiUrl}/services/`; // Corregido aquí
+    const apiUrlEndpoint = `${apiUrl}/services/get-services`;
+    const apiUrlSave = `${apiUrl}/services/get-services/`; // Corregido aquí
 
     // Usamos el nuevo hook con refreshData
     const { data, error, isLoading, refreshData } = useFetchData(apiUrlEndpoint);

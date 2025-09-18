@@ -14,9 +14,9 @@ export const RecoverPassword = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const sendCode = usePostData("password-recovery/recover");
-    const verifyCode = usePostData("password-recovery/recover/verify");
-    const resetPassword = usePostData("password-recovery/recover/reset");
+    const sendCode = usePostData("/auth/password-recovery/recover");
+    const verifyCode = usePostData("/auth/password-recovery/verify");
+    const resetPassword = usePostData("/auth/password-recovery/reset");
 
     const {
         alertVisible,

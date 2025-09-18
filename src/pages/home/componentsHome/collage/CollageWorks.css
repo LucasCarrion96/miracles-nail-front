@@ -1,6 +1,19 @@
-.collageBody {
+.collage-body {
+    position: relative;
+    margin-top: 50px;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    min-height: 600px;
+
+}
+
+.collage-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .collage-grid {

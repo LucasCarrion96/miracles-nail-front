@@ -11,7 +11,7 @@ export const AdminArtTypeTable = () => {
     }
 
     const apiUrl = import.meta.env.VITE_API_URL;
-    const apiUrlEndpoint = `${apiUrl}/artTypes`;
+    const apiUrlEndpoint = `${apiUrl}/catalog/artTypes`;
 
     // 💾 Usamos el nuevo hook con enableRefresh
     const { data, isLoading, error, refreshData } = useFetchData(apiUrlEndpoint, true);
@@ -48,7 +48,7 @@ export const AdminArtTypeTable = () => {
 
     return (
         <>
-            <div>
+            <div >
                 <h2 className="title">Diseños</h2>
                 <div className='dashboard-table'>
                     <table className="table-custom">

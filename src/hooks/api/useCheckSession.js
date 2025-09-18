@@ -9,7 +9,7 @@ export const useCheckSession = () => {
     const checkSession = async () => {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
-            const response = await axios.get(`${apiUrl}/session/check-session`, { withCredentials: true });
+            const response = await axios.get(`${apiUrl}/auth/session/check-session`, { withCredentials: true });
             console.log("Respuesta del backend:", response.data.user); // Ver la respuesta
 
             if (response.data.loggedIn) {

@@ -10,7 +10,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'), // Raíz del proyecto
       '@api': path.resolve(__dirname, './src/hooks/api'),
       '@components/form': path.resolve(__dirname, './src/components/form'),
-      '@components/form/button': path.resolve(__dirname, './src/components/form/button'),
+      '@components/button': path.resolve(__dirname, './src/components/form/button'),
+      '@components/select': path.resolve(__dirname, './src/components/form/select/CustomSelect'),
       '@components/layout': path.resolve(__dirname, './src/components/layout'),
     },
   },

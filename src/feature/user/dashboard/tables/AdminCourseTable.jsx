@@ -4,7 +4,7 @@ import { useModalEdit } from '../../../../hooks/hooksTables/useModalEdit';
 import { useModalRead } from '../../../../hooks/hooksTables/useModalRead';
 import { ModalOnlyText } from '../componentsDashboard/ModalOnlyText';
 import { useFetchData } from '@api'; // Nuevo hook importado
-
+import { IconButton } from '@components/button/icon-button/IconButton';
 export const AdminCourseTable = () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -12,8 +12,8 @@ export const AdminCourseTable = () => {
     }
 
     const apiUrl = import.meta.env.VITE_API_URL;
-    const apiUrlEndpoint = `${apiUrl}/courses`;
-    const apiUrlSave = `${apiUrl}/courses/`; // Endpoint para guardar los datos
+    const apiUrlEndpoint = `${apiUrl}/services/courses`;
+    const apiUrlSave = `${apiUrl}/sevices/courses/`; // Endpoint para guardar los datos
 
     // Usamos useFetchData en lugar de tableRefreshData
     const { data, error, isLoading, refreshData } = useFetchData(apiUrlEndpoint);
@@ -92,14 +92,34 @@ export const AdminCourseTable = () => {
                                 <td>{course.title}</td>
                                 <td>{course.category}</td>
                                 <td>
-                                    <button className='btn' onClick={() => openTextModal(course)}>Leer</button>
+                                    <IconButton
+                                        handleClick={() => openTextModal(course)}
+                                        icon="BookOpen"
+                                        color="white"
+                                        btnClass="btn btn-black"
+                                        size={20}
+                                    />
+
                                 </td>
                                 <td>{course.price}</td>
                                 <td>{course.duration}</td>
                                 <td>
-                                    <button className='btn' onClick={() => openModal(course)}>Editar</button>
+                                    <IconButton
+                                        handleClick={() => openModal(course)}
+                                        icon="SquarePen"
+                                        color="white"
+                                        btnClass="btn btn-black"
+                                        size={20}
+                                    />
                                 </td>
-                                <td><button className='btn btn-danger'>Eliminar</button></td>
+                                <td>
+                                    <IconButton
+                                        icon="Trash"
+                                        color="white"
+                                        btnClass="btn btn-danger"
+                                        size={20}
+                                    />
+                                </td>
                             </tr>
                         ))}
                     </tbody>

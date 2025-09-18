@@ -9,3 +9,21 @@
     justify-content: center;
     align-items: start;
 }
+
+.login-control {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 50%;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    margin-right: 5px;
+
+}

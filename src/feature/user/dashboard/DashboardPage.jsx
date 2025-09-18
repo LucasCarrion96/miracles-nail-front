@@ -56,8 +56,10 @@ export const DashboardPage = () => {
                         />
                     </form>
                 </header>
+                <main className="dashboard-main">
+                    {renderTable()}
+                </main>
 
-                {renderTable()}
 
             </div>
         </>
